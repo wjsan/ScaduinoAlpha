@@ -11,16 +11,17 @@ namespace Scaduino.Components
 {
     public partial class SerialArduino : SerialDevice
     {
-        public List<Pin> Pins { get; }
+        private List<Pin> pins;
 
         public void AddPin(Pin pin)
         {
-            Pins.Add(pin);
+            pins.Add(pin);
         }
 
         public void RemovePin(Pin pin)
-        {
-            Pins.Remove(pin);
+        { 
+            pins.Remove(pin);
+            pin.Dispose();
         }
 
         [Category("Scaduino")]
@@ -39,9 +40,9 @@ namespace Scaduino.Components
                     i++;
                 }
                 code += "};\n\n";
-                foreach (Pin pin in Pins)
+                foreach (Pin pin in pins)
                 {
-                    code += pin.GetDefine();
+                    code += pin.GetDefine(nameof(pin));
                     i++;
                 }
                 code += "\n";
@@ -49,17 +50,17 @@ namespace Scaduino.Components
                 code += "\t/*scaduino setup*/\n";
                 code += $"\tSerial.begin({BaudRate});\t//Initialize Serial Port of your device\n";
                 code += "\tscaduino.setBus(&Serial);\t //Set wich Serial Port of your device will be use to communicato with Scaduino\n";
-                foreach (Pin pin in Pins)
+                foreach (Pin pin in pins)
                 {
-                    code += pin.GetSetup();
+                    code += pin.GetSetup(nameof(pin));
                 }
                 code += "}\n\n";
                 code += "void loop(){\n";
                 code += "\tscaduino.communicationTask();\t //Perform communication between your device and Scaduino interface\n\n";
                 i = 0;
-                foreach (Pin pin in Pins)
+                foreach (Pin pin in pins)
                 {
-                    code += pin.GetControlSnippet(Controls[i].Name);
+                    code += pin.GetControlSnippet(nameof(pin), Controls[i].Name);
                     i++;
                 }
                 code += "}";
@@ -70,14 +71,14 @@ namespace Scaduino.Components
         public SerialArduino()
         {
             InitializeComponent();
-            Pins = new List<Pin>();
+            pins = new List<Pin>();
         }
 
         public SerialArduino(IContainer container)
         {
             container.Add(this);
             InitializeComponent();
-            Pins = new List<Pin>();
+            pins = new List<Pin>();
         }
     }
 }

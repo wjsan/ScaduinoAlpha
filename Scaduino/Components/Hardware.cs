@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
+using System.Collections;
 using System.Linq;
 using System.Text;
-using System.Windows.Controls;
 
 namespace Scaduino.Components
 {
-    public partial class Pin : Component
+    class Hardware: IList
+    {
+
+    }
+
+    public partial class NewPin
     {
         public IList<string> names { get; set; }
 
@@ -32,20 +35,21 @@ namespace Scaduino.Components
 
         private SerialArduino device;
 
-        public SerialArduino Arduino { 
+        public SerialArduino Arduino
+        {
             get => device;
             set
             {
-                device?.RemovePin(this);
+                //device?.RemovePin(this);
                 device = value;
-                device?.AddPin(this);
+               // device?.AddPin(this);
             }
         }
 
         public int PinNumber { get; set; }
         public PinType PinMode { get; set; }
 
-        public Pin()
+        public NewPin()
         {
             PinNumber = 2;
             PinMode = PinType.Input;

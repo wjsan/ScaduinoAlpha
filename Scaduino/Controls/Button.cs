@@ -29,8 +29,6 @@ namespace Scaduino.Controls
             } 
         }
 
-        public Pin Pin { get; set; }
-
         public Button()
         {
             InitializeComponent();

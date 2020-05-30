@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.screens = new ModernUI.ScreenContainer();
             this.tabHome = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabPage();
-            this.button1 = new Scaduino.Controls.Button();
-            this.serialArduino1 = new Scaduino.Components.SerialArduino(this.components);
             this.menu1 = new ModernUI.Menu();
             this.menuItem3 = new ModernUI.MenuItem();
             this.menuItem2 = new ModernUI.MenuItem();
@@ -48,7 +45,6 @@
             this.pin1 = new Scaduino.Components.Pin();
             this.screens.SuspendLayout();
             this.tabHome.SuspendLayout();
-            this.tabControl.SuspendLayout();
             this.menu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +89,6 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.button1);
             this.tabControl.Location = new System.Drawing.Point(4, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Windows.Forms.Padding(3);
@@ -101,31 +96,6 @@
             this.tabControl.TabIndex = 1;
             this.tabControl.Text = "Control";
             this.tabControl.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.ColorMouseEnter = System.Drawing.Color.Gray;
-            this.button1.ColorMouseLeave = System.Drawing.Color.LightGray;
-            this.button1.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.button1.Device = this.serialArduino1;
-            this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.ForeColorMouseEnter = System.Drawing.Color.White;
-            this.button1.ForeColorMouseLeave = System.Drawing.Color.Black;
-            this.button1.ForeColorOnClick = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(57, 50);
-            this.button1.Name = "button1";
-            this.button1.Pin = null;
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // serialArduino1
-            // 
-            this.serialArduino1.BaudRate = 9600;
-            this.serialArduino1.PortName = "COM1";
             // 
             // menu1
             // 
@@ -277,9 +247,9 @@
             // 
             // pin1
             // 
-            this.pin1.Arduino = this.serialArduino1;
+            this.pin1.Arduino = null;
+            this.pin1.names = null;
             this.pin1.PinMode = Scaduino.Components.Pin.PinType.Input;
-            this.pin1.PinName = "Pin";
             this.pin1.PinNumber = 2;
             // 
             // Form1
@@ -299,7 +269,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.screens.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
-            this.tabControl.ResumeLayout(false);
             this.menu1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -321,8 +290,6 @@
         private System.Windows.Forms.Control control2;
         private System.Windows.Forms.Control control3;
         private System.Windows.Forms.Control control4;
-        private Components.SerialArduino serialArduino1;
-        private Controls.Button button1;
         private Components.Pin pin1;
     }
 }

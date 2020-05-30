@@ -56,6 +56,7 @@
     <Compile Include="Components\Device.Designer.cs">
       <DependentUpon>Device.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Hardware.cs" />
     <Compile Include="Components\Pin.cs">
       <SubType>Component</SubType>
     </Compile>
