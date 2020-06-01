@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BB09FB35-32ED-4F08-AA54-AF46D6D501E0}</ProjectGuid>
+    <ProjectGuid>{535D12F6-FFB3-4335-859C-01061CB77FCC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Scaduino</RootNamespace>
-    <AssemblyName>Scaduino</AssemblyName>
+    <RootNamespace>LedsControl</RootNamespace>
+    <AssemblyName>LedsControl</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,11 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,33 +42,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationProvider" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArduinoBoard\Arduino.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ArduinoBoard\Arduino.Designer.cs">
-      <DependentUpon>Arduino.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ArduinoBoard\CodeManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ArduinoBoard\CodeManager.Designer.cs">
-      <DependentUpon>CodeManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ArduinoBoard\Pin.cs" />
-    <Compile Include="Components\Tag.cs" />
-    <Compile Include="Controls\ScaduinoButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ScaduinoButton.Designer.cs">
-      <DependentUpon>ScaduinoButton.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\IScaduinoControl.cs" />
-    <Compile Include="Editors.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,32 +52,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocols\BqBusSerialDriver.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Protocols\BqBusSerialDriver.Designer.cs">
-      <DependentUpon>BqBusSerialDriver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Protocols\ICommunicationDriver.cs" />
-    <Compile Include="Windows\CreateCodeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\CreateCodeDialog.Designer.cs">
-      <DependentUpon>CreateCodeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\SelectTag.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\SelectTag.Designer.cs">
-      <DependentUpon>SelectTag.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\SelectTagEditor.cs" />
-    <EmbeddedResource Include="Controls\ScaduinoButton.resx">
-      <DependentUpon>ScaduinoButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,14 +63,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Windows\CreateCodeDialog.resx">
-      <DependentUpon>CreateCodeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\SelectTag.resx">
-      <DependentUpon>SelectTag.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -134,17 +75,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommunicationProtocols\CommunicationProtocols.csproj">
-      <Project>{751E754E-FAED-4042-BA9A-8B66F43F40B8}</Project>
-      <Name>CommunicationProtocols</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ModernUI\ModernUI.csproj">
-      <Project>{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}</Project>
+      <Project>{f12ea0f1-dfc1-41c6-a02e-4f3b975f2f73}</Project>
       <Name>ModernUI</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Icons\scaduinoIcon.png" />
+    <ProjectReference Include="..\Scaduino\Scaduino.csproj">
+      <Project>{bb09fb35-32ed-4f08-aa54-af46d6d501e0}</Project>
+      <Name>Scaduino</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

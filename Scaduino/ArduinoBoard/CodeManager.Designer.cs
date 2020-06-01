@@ -1,6 +1,6 @@
-﻿namespace Scaduino.Components
+﻿namespace Scaduino.ArduinoBoard
 {
-    partial class Pin
+    partial class CodeManager
     {
         /// <summary>
         /// Variável de designer necessária.

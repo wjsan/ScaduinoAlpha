@@ -1,8 +1,8 @@
-﻿namespace Scaduino.Components
+﻿namespace Scaduino.Controls
 {
-    partial class SerialArduino
+    partial class ScaduinoButton
     {
-        /// <summary>
+        /// <summary> 
         /// Variável de designer necessária.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -13,22 +13,33 @@
         /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
         }
 
         #region Código gerado pelo Designer de Componentes
 
-        /// <summary>
+        /// <summary> 
         /// Método necessário para suporte ao Designer - não modifique 
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ScaduinoButton
+            // 
+            this.Size = new System.Drawing.Size(120, 20);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_MouseDown);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button_MouseUp);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

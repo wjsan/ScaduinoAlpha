@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Scaduino.Components.Tag tag2 = new Scaduino.Components.Tag();
+            Scaduino.ArduinoBoard.Pin pin2 = new Scaduino.ArduinoBoard.Pin();
             this.screens = new ModernUI.ScreenContainer();
+            this.tabControl = new System.Windows.Forms.TabPage();
+            this.bqBusSerialDriver1 = new Scaduino.BqBusSerialDriver(this.components);
             this.tabHome = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl = new System.Windows.Forms.TabPage();
             this.menu1 = new ModernUI.Menu();
             this.menuItem3 = new ModernUI.MenuItem();
             this.menuItem2 = new ModernUI.MenuItem();
@@ -42,7 +46,7 @@
             this.control2 = new System.Windows.Forms.Control();
             this.control3 = new System.Windows.Forms.Control();
             this.control4 = new System.Windows.Forms.Control();
-            this.pin1 = new Scaduino.Components.Pin();
+            this.arduino1 = new Scaduino.Arduino(this.components);
             this.screens.SuspendLayout();
             this.tabHome.SuspendLayout();
             this.menu1.SuspendLayout();
@@ -51,8 +55,8 @@
             // screens
             // 
             this.screens.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.screens.Controls.Add(this.tabHome);
             this.screens.Controls.Add(this.tabControl);
+            this.screens.Controls.Add(this.tabHome);
             this.screens.Dock = System.Windows.Forms.DockStyle.Fill;
             this.screens.ItemSize = new System.Drawing.Size(0, 1);
             this.screens.Location = new System.Drawing.Point(158, 74);
@@ -62,6 +66,25 @@
             this.screens.Size = new System.Drawing.Size(669, 474);
             this.screens.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.screens.TabIndex = 2;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Location = new System.Drawing.Point(4, 5);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabControl.Size = new System.Drawing.Size(661, 465);
+            this.tabControl.TabIndex = 1;
+            this.tabControl.Text = "Control";
+            this.tabControl.UseVisualStyleBackColor = true;
+            // 
+            // bqBusSerialDriver1
+            // 
+            this.bqBusSerialDriver1.BaudRate = 9600;
+            this.bqBusSerialDriver1.PortName = "COM4";
+            tag2.Name = "BUTTON";
+            tag2.Value = 0;
+            this.bqBusSerialDriver1.Tags = new Scaduino.Components.Tag[] {
+        tag2};
             // 
             // tabHome
             // 
@@ -86,16 +109,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Seja Bem Vindo!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabControl
-            // 
-            this.tabControl.Location = new System.Drawing.Point(4, 5);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.Padding = new System.Windows.Forms.Padding(3);
-            this.tabControl.Size = new System.Drawing.Size(661, 465);
-            this.tabControl.TabIndex = 1;
-            this.tabControl.Text = "Control";
-            this.tabControl.UseVisualStyleBackColor = true;
             // 
             // menu1
             // 
@@ -245,12 +258,15 @@
             this.control4.TabIndex = 0;
             this.control4.Text = "control4";
             // 
-            // pin1
+            // arduino1
             // 
-            this.pin1.Arduino = null;
-            this.pin1.names = null;
-            this.pin1.PinMode = Scaduino.Components.Pin.PinType.Input;
-            this.pin1.PinNumber = 2;
+            this.arduino1.CommunicationLink = this.bqBusSerialDriver1;
+            pin2.Mode = Scaduino.ArduinoBoard.Pin.PinType.Output;
+            pin2.Name = "led";
+            pin2.Number = 2;
+            pin2.Tag = tag2;
+            this.arduino1.Pins = new Scaduino.ArduinoBoard.Pin[] {
+        pin2};
             // 
             // Form1
             // 
@@ -290,6 +306,7 @@
         private System.Windows.Forms.Control control2;
         private System.Windows.Forms.Control control3;
         private System.Windows.Forms.Control control4;
-        private Components.Pin pin1;
+        private BqBusSerialDriver bqBusSerialDriver1;
+        private Arduino arduino1;
     }
 }

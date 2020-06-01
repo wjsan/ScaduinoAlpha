@@ -1,8 +1,8 @@
-﻿namespace Scaduino.Controls
+﻿namespace Scaduino.ArduinoBoard
 {
-    partial class Button
+    partial class Arduino
     {
-        /// <summary> 
+        /// <summary>
         /// Variável de designer necessária.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -13,33 +13,22 @@
         /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            if (disposing && (components != null))
             {
-                if (components != null)
-                {
-                    components.Dispose();
-                }
-                device?.RemoveControl(this);
+                components.Dispose();
             }
             base.Dispose(disposing);
         }
 
         #region Código gerado pelo Designer de Componentes
 
-        /// <summary> 
+        /// <summary>
         /// Método necessário para suporte ao Designer - não modifique 
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Button
-            // 
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_MouseDown);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button_MouseUp);
-            this.ResumeLayout(false);
-
+            components = new System.ComponentModel.Container();
         }
 
         #endregion

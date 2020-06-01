@@ -1,11 +1,9 @@
-﻿using Scaduino.Components;
-using Scaduino.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Scaduino
+namespace LedsControl
 {
     static class Program
     {

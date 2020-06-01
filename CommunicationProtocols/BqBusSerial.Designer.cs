@@ -1,6 +1,6 @@
-﻿namespace Scaduino.Components
+﻿namespace BqBusNet
 {
-    partial class SerialDevice
+    partial class BqBusSerial
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+
         }
 
         #endregion

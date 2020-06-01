@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("BqBusNet")]
+[assembly: AssemblyTitle("CommunicationProtocols")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BqBusNet")]
+[assembly: AssemblyProduct("CommunicationProtocols")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("c7db89bc-43b8-4da9-8dee-f276fd105d0c")]
+[assembly: Guid("751e754e-faed-4042-ba9a-8b66f43f40b8")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

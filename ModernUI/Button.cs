@@ -9,10 +9,8 @@ using System.Windows.Forms;
 
 namespace ModernUI
 {
-    [Serializable]
     public partial class Button : Label
     {
-
         private Color colorMouseLeave;
 
         public Color ColorMouseLeave

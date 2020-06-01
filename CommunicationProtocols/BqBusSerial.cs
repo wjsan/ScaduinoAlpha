@@ -1,18 +1,20 @@
-﻿using System;
+﻿using CommunicationProtocols;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO.Ports;
-using System.Windows.Forms;
 
 namespace BqBusNet
 {
-    public partial class BqBus : Component
+    public partial class BqBusSerial : Component, ICommunicationProtocol, IRegsHandler, IConnectionHandler
     {
         private string[] previousRegs;
         private string[] regs;
         private string msg;
         private List<int> changedRegs = new List<int>();
         private int size;
+
+        public event EventHandler DataRecieved;
 
         /// <summary>
         /// Serial Port to be used
@@ -46,6 +48,7 @@ namespace BqBusNet
                 throw;
             }
             keepChangedRegs();
+            DataRecieved(sender, e);
             sendData();
         }
 
@@ -78,7 +81,7 @@ namespace BqBusNet
         /// <summary>
         /// Create an BqBus Communication Instance
         /// </summary>
-        public BqBus()
+        public BqBusSerial()
         {
             InitializeComponent();
         }
@@ -86,10 +89,9 @@ namespace BqBusNet
         /// <summary>
         /// Create an BqBus Communication Instance
         /// </summary>
-        public BqBus(IContainer container)
+        public BqBusSerial(IContainer container)
         {
             container.Add(this);
-
             InitializeComponent();
         }
 
@@ -118,7 +120,6 @@ namespace BqBusNet
                 try
                 {
                     Serial.DataReceived -= Serial_DataReceived;
-                    Application.DoEvents();
                     Serial.Close();
                 }
                 catch (Exception)
@@ -162,6 +163,22 @@ namespace BqBusNet
                 }
             }
             return (0);
+        }
+
+        /// <summary>
+        /// Toggle value of reg
+        /// </summary>
+        /// <param name="address">Address of register</param>
+        public void ToggleReg(int address)
+        {
+            if (regs != null)
+            {
+                if (regs.Length > address)
+                {
+                    regs[address] = regs[address] == "1" ? "0" : "1";
+                    changedRegs.Add(address);
+                }
+            }
         }
 
     }

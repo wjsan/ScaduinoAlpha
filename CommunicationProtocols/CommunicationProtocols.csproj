@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7DB89BC-43B8-4DA9-8DEE-F276FD105D0C}</ProjectGuid>
+    <ProjectGuid>{751E754E-FAED-4042-BA9A-8B66F43F40B8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BqBusNet</RootNamespace>
-    <AssemblyName>BqBusNet</AssemblyName>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <RootNamespace>CommunicationProtocols</RootNamespace>
+    <AssemblyName>CommunicationProtocols</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -32,23 +32,29 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BqBus.cs">
+    <Compile Include="BqBusSerial.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BqBus.Designer.cs">
-      <DependentUpon>BqBus.cs</DependentUpon>
+    <Compile Include="BqBusSerial.Designer.cs">
+      <DependentUpon>BqBusSerial.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="ICommunicationProtocol.cs" />
+    <Compile Include="IConnectionHandler.cs" />
+    <Compile Include="IRegsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BqBus.resx">
-      <DependentUpon>BqBus.cs</DependentUpon>
+    <EmbeddedResource Include="BqBusSerial.resx">
+      <DependentUpon>BqBusSerial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
