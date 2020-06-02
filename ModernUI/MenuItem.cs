@@ -19,7 +19,7 @@ namespace ModernUI
         private bool autoColors;
 
         [Localizable(true)]
-        public string LabelText { get => labelMenu.Text; set => labelMenu.Text = value; }
+        new public string Text { get => labelMenu.Text; set => labelMenu.Text = value; }
         public Image Image { get => labelMenu.Image; set => labelMenu.Image = value; }
         public ScreenContainer ScreenContainer { get; set; }
         public Screen Screen { get; set; }
