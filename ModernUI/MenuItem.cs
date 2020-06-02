@@ -21,7 +21,7 @@ namespace ModernUI
         [Localizable(true)]
         public string LabelText { get => labelMenu.Text; set => labelMenu.Text = value; }
         public Image Image { get => labelMenu.Image; set => labelMenu.Image = value; }
-        public ScreenContainer ScreenController { get; set; }
+        public ScreenContainer ScreenContainer { get; set; }
         public Screen Screen { get; set; }
 
         public bool ExitApplication { get; set; }
@@ -82,11 +82,11 @@ namespace ModernUI
                 }
             }
             this.Selected = true;
-            if(ScreenController != null)
+            if(ScreenContainer != null)
             {
                 try
                 {
-                    ScreenController.SelectedScreen = Screen;
+                    ScreenContainer.SelectedScreen = Screen;
 
                 }
                 catch (Exception)

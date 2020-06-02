@@ -50,8 +50,7 @@
             // 
             // labelSelected
             // 
-            this.labelSelected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelSelected.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelSelected.BackColor = System.Drawing.SystemColors.HotTrack;
             this.labelSelected.Location = new System.Drawing.Point(0, 7);
             this.labelSelected.Name = "labelSelected";

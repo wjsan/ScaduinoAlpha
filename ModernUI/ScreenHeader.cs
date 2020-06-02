@@ -11,28 +11,29 @@ namespace ModernUI
 {
     public partial class ScreenHeader : Label
     {
-        private ScreenContainer screenController;
+        private ScreenContainer screenContainer;
 
-        public ScreenContainer ScreenController 
+        public ScreenContainer ScreenContainer 
         { 
-            get => screenController;
+            get => screenContainer;
             set 
             {
-                screenController = value;
-                if(screenController != null)
+                screenContainer = value;
+                if(screenContainer != null)
                 {
-                    screenController.SelectedScreenChanged -= Screen_SelectedScreenChanged;
-                    screenController = value;
-                    screenController.SelectedScreenChanged += Screen_SelectedScreenChanged;
+                    screenContainer.SelectedScreenChanged -= Screen_SelectedScreenChanged;
+                    screenContainer = value;
+                    screenContainer.SelectedScreenChanged += Screen_SelectedScreenChanged;
                 }
             }
         }
 
         private void Screen_SelectedScreenChanged(object sender, EventArgs e)
         {
-            if (screenController != null)
+            if (screenContainer != null && screenContainer.SelectedScreen != null)
             {
-                Text = screenController.SelectedScreen.Text;
+                if (screenContainer.SelectedScreen.HeaderText != null)
+                    Text = screenContainer.SelectedScreen.HeaderText;
             }
         }
 

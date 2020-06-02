@@ -12,6 +12,7 @@ namespace ModernUI
     [ToolboxItem(false)]
     public partial class Screen : Panel
     {
+        public string HeaderText { get; set; }
         public Screen()
         {
             InitializeComponent();

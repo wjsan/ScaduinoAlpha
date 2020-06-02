@@ -13,18 +13,18 @@ namespace ModernUI
     {
         private Color backColor;
         private Color colorOnOver;
+        private bool initialize = true;
 
         public Color BackColorOnOver
         {
             get => colorOnOver;
-            set 
+            set
             {
                 colorOnOver = value;
                 backColor = BackColor;
             }
         }
 
-        public Menu Menu { get; set; }
         public HideMenu()
         {
             InitializeComponent();
@@ -32,17 +32,22 @@ namespace ModernUI
 
         private void HideMenu_MouseClick(object sender, MouseEventArgs e)
         {
-            Menu?.ToggleMenu();
-            if (Menu != null)
+            Menu menu = (Menu)Parent;
+            menu?.ToggleMenu();
+            if (menu != null)
             {
-                Text = Menu.Hidden ? ">" : "<";
+                Text = menu.Hidden ? ">" : "<";
             }
         }
 
         private void HideMenu_Paint(object sender, PaintEventArgs e)
         {
-            AutoSize = false;
-            Text = Text;
+            if (initialize)
+            {
+                AutoSize = false;
+                Text = "";
+                initialize = false;
+            }
         }
 
         private void HideMenu_MouseEnter(object sender, EventArgs e)
@@ -57,20 +62,22 @@ namespace ModernUI
 
         private void HideMenu_ParentChanged(object sender, EventArgs e)
         {
-            if(Parent != null)
+            if (Disposing || IsDisposed) return;
+            if (Parent != null)
             {
-                if (typeof(Menu).IsInstanceOfType(this.Parent))
-                    Menu = (Menu)Parent;
-                else
+                if (!typeof(Menu).IsInstanceOfType(this.Parent))
+                {
                     Parent.Controls.Remove(this);
+                    return;
+                }
             }
-            this.SendToBack();
+            SendToBack();
             Parent.ControlAdded += Parent_ControlAdded;
         }
 
         private void Parent_ControlAdded(object sender, ControlEventArgs e)
         {
-            this.SendToBack();
+            SendToBack();
         }
     }
 }

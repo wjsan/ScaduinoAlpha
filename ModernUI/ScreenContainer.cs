@@ -13,6 +13,7 @@ namespace ModernUI
     public partial class ScreenContainer : Panel
     {
         private Screen selectedScreen;
+        private Control lastParent;
 
         public event EventHandler SelectedScreenChanged;
 
@@ -50,6 +51,25 @@ namespace ModernUI
             {
                 MessageBox.Show("Need to be Screen controller");
                 Controls.Remove(e.Control);
+            }
+        }
+
+        private void ScreenContainer_ParentChanged(object sender, EventArgs e)
+        {
+            if (lastParent != null)
+                lastParent.ControlRemoved -= Parent_ControlRemoved;
+            if (Parent != null)
+            {
+                Parent.ControlRemoved += Parent_ControlRemoved;
+                lastParent = Parent;
+            }
+        }
+
+        private void Parent_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (e.Control == this)
+            {
+                
             }
         }
     }

@@ -82,5 +82,11 @@ namespace ModernUI
             if (Hidden) ShowMenu();
             else HideMenu();
         }
+
+        private void Menu_ParentChanged(object sender, EventArgs e)
+        {
+            if (Disposing || IsDisposed) return;
+            BackColor = Parent.BackColor;
+        }
     }
 }

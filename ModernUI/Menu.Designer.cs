@@ -37,6 +37,7 @@ namespace ModernUI
             this.Dock = System.Windows.Forms.DockStyle.Left;
             this.Size = new System.Drawing.Size(272, 398);
             this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Menu_ControlAdded);
+            this.ParentChanged += new System.EventHandler(this.Menu_ParentChanged);
             this.ResumeLayout(false);
 
         }

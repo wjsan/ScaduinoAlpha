@@ -33,7 +33,7 @@
             // HideMenu
             // 
             this.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Size = new System.Drawing.Size(10, 23);
+            this.Size = new System.Drawing.Size(5, 23);
             this.Text = "<";
             this.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.HideMenu_Paint);

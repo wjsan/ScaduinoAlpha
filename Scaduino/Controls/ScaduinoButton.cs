@@ -18,9 +18,6 @@ namespace Scaduino.Controls
     [Serializable]
     public partial class ScaduinoButton : ModernUI.Button, IScaduinoControl
     {
-        private ICommunicationDriver communicationLink;
-        private Tag tag;
-
         public enum ButtonMode
         {
             Pulse,
@@ -28,8 +25,11 @@ namespace Scaduino.Controls
             TurnOff,
             Toggle
         }
-
+        
         public ButtonMode Mode { get; set; }
+
+        private ICommunicationDriver communicationLink;
+        private Tag tag;
 
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
         new public Tag Tag 
@@ -65,6 +65,7 @@ namespace Scaduino.Controls
 
         private void Button_MouseDown(object sender, MouseEventArgs e)
         {
+            if (communicationLink == null) return;
             switch (Mode)
             {
                 case ButtonMode.Pulse:
@@ -86,6 +87,7 @@ namespace Scaduino.Controls
 
         private void Button_MouseUp(object sender, MouseEventArgs e)
         {
+            if (communicationLink == null) return;
             switch (Mode)
             {
                 case ButtonMode.Pulse:

@@ -72,6 +72,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SelectTag";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Tag";
             this.Load += new System.EventHandler(this.SelectTag_Load);
             this.ResumeLayout(false);

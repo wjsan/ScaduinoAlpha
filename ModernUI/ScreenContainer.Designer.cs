@@ -32,7 +32,9 @@
             // 
             // ScreenContainer
             // 
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.ScreenContainer_ControlAdded);
+            this.ParentChanged += new System.EventHandler(this.ScreenContainer_ParentChanged);
             this.ResumeLayout(false);
 
         }

@@ -9,9 +9,13 @@ namespace Scaduino.Protocols
 {
     public partial class BqBusSerialDriver : Component, Scaduino.Protocols.ICommunicationDriver
     {
+        System.Timers.Timer timer = new System.Timers.Timer();
+
         private Tag[] tags;
 
         private BqBusSerial bqBusSerial;
+
+        public bool AutoConnect { get; set; }
 
         public Tag[] Tags
         {
@@ -72,6 +76,16 @@ namespace Scaduino.Protocols
             bqBusSerial = new BqBusSerial();
             bqBusSerial.Serial = new System.IO.Ports.SerialPort();
             bqBusSerial.DataRecieved += BqBusSerial_DataRecieved;
+            timer.Elapsed += Timer_Elapsed;
+            timer.Interval = 500;
+            timer.Start();
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (AutoConnect)
+                Connect();
+            timer.Stop();
         }
 
         private void BqBusSerial_DataRecieved(object sender, EventArgs e)

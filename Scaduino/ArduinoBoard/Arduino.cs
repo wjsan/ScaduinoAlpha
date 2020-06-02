@@ -39,7 +39,7 @@ namespace Scaduino.ArduinoBoard
             string code = "";
             code += "#include \"BqBus.h\"\n\n";
             code += CommunicationLink.GetInstanceCode();
-            code += "\nenum Tags {\n";
+            code += "\nenum Regs {\n";
             foreach (Tag tag in CommunicationLink.Tags)
             {
                 code += "\t" + tag.Name + "_REG,\n";
