@@ -2,12 +2,12 @@
 {
     partial class ScreenContainer
     {
-        /// <summary> 
+        /// <summary>
         /// Variável de designer necessária.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Limpar os recursos que estão sendo usados.
         /// </summary>
         /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
@@ -22,7 +22,7 @@
 
         #region Código gerado pelo Designer de Componentes
 
-        /// <summary> 
+        /// <summary>
         /// Método necessário para suporte ao Designer - não modifique 
         /// o conteúdo deste método com o editor de código.
         /// </summary>
@@ -32,7 +32,7 @@
             // 
             // ScreenContainer
             // 
-            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.ScreenContainer_ControlAdded);
             this.ResumeLayout(false);
 
         }

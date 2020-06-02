@@ -22,7 +22,7 @@ namespace ModernUI
         public string LabelText { get => labelMenu.Text; set => labelMenu.Text = value; }
         public Image Image { get => labelMenu.Image; set => labelMenu.Image = value; }
         public ScreenContainer ScreenController { get; set; }
-        public int ScreenControllerIdx { get; set; }
+        public Screen Screen { get; set; }
 
         public bool ExitApplication { get; set; }
 
@@ -86,7 +86,7 @@ namespace ModernUI
             {
                 try
                 {
-                    ScreenController.SelectedIndex = ScreenControllerIdx;
+                    ScreenController.SelectedScreen = Screen;
 
                 }
                 catch (Exception)

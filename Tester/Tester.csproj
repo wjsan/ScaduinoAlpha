@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{535D12F6-FFB3-4335-859C-01061CB77FCC}</ProjectGuid>
+    <ProjectGuid>{0F85873D-E1C5-4B84-896D-206B1729F498}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LedsControl</RootNamespace>
-    <AssemblyName>LedsControl</AssemblyName>
+    <RootNamespace>Tester</RootNamespace>
+    <AssemblyName>Tester</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -75,6 +75,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommunicationProtocols\CommunicationProtocols.csproj">
+      <Project>{751e754e-faed-4042-ba9a-8b66f43f40b8}</Project>
+      <Name>CommunicationProtocols</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModernUI\ModernUI.csproj">
       <Project>{f12ea0f1-dfc1-41c6-a02e-4f3b975f2f73}</Project>
       <Name>ModernUI</Name>

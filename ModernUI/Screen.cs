@@ -7,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LedsControl
+namespace ModernUI
 {
-    public partial class Form1 : Form
+    [ToolboxItem(false)]
+    public partial class Screen : Panel
     {
-        public Form1()
+        public Screen()
         {
             InitializeComponent();
+        }
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            base.OnPaint(pe);
         }
     }
 }

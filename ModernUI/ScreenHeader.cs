@@ -21,18 +21,18 @@ namespace ModernUI
                 screenController = value;
                 if(screenController != null)
                 {
-                    screenController.SelectedIndexChanged -= Screen_SelectedIndexChanged;
+                    screenController.SelectedScreenChanged -= Screen_SelectedScreenChanged;
                     screenController = value;
-                    screenController.SelectedIndexChanged += Screen_SelectedIndexChanged;
+                    screenController.SelectedScreenChanged += Screen_SelectedScreenChanged;
                 }
             }
         }
 
-        private void Screen_SelectedIndexChanged(object sender, EventArgs e)
+        private void Screen_SelectedScreenChanged(object sender, EventArgs e)
         {
             if (screenController != null)
             {
-                Text = screenController.SelectedTab.Text;
+                Text = screenController.SelectedScreen.Text;
             }
         }
 

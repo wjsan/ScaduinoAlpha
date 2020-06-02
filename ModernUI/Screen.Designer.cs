@@ -1,6 +1,6 @@
-﻿namespace LedsControl
+﻿namespace ModernUI
 {
-    partial class Form1
+    partial class Screen
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Windows Form Designer
+        #region Código gerado pelo Designer de Componentes
 
         /// <summary>
         /// Método necessário para suporte ao Designer - não modifique 
@@ -28,21 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-
+            components = new System.ComponentModel.Container();
         }
 
         #endregion
     }
 }
-

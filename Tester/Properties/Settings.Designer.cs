@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LedsControl.Properties
+namespace Tester.Properties
 {
 
 

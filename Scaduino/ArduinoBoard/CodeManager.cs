@@ -6,7 +6,8 @@ using System.Windows.Forms;
 
 namespace Scaduino.ArduinoBoard
 {
-    public partial class CodeManager : Component
+   [DesignTimeVisible(false)]
+   public partial class CodeManager : Component
     {
         private Arduino arduino;
         private readonly string scaduinoDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Scaduino";

@@ -11,6 +11,10 @@ using Scaduino.ArduinoBoard;
 
 namespace Scaduino.ArduinoBoard
 {
+    [DisplayName("Arduino")]
+    [Description("Custom toolbox item from package LoadToolboxMembers.")]
+    [ToolboxItem(true)]
+    //[System.Drawing.ToolboxBitmap(typeof(Arduino), "Control1.bmp")]
     public partial class Arduino : Component
     {
         private ICommunicationDriver communicationLink;
