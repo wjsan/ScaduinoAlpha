@@ -111,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Location = new System.Drawing.Point(15, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(223, 21);
             this.label3.TabIndex = 4;
@@ -129,7 +129,7 @@
             this.buttonCancel.ForeColorMouseEnter = System.Drawing.Color.White;
             this.buttonCancel.ForeColorMouseLeave = System.Drawing.Color.Black;
             this.buttonCancel.ForeColorOnClick = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(304, 276);
+            this.buttonCancel.Location = new System.Drawing.Point(312, 276);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 33);
             this.buttonCancel.TabIndex = 5;
@@ -149,7 +149,7 @@
             this.buttonCreate.ForeColorMouseEnter = System.Drawing.Color.White;
             this.buttonCreate.ForeColorMouseLeave = System.Drawing.Color.Black;
             this.buttonCreate.ForeColorOnClick = System.Drawing.Color.White;
-            this.buttonCreate.Location = new System.Drawing.Point(449, 276);
+            this.buttonCreate.Location = new System.Drawing.Point(457, 276);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(100, 33);
             this.buttonCreate.TabIndex = 5;
@@ -179,7 +179,7 @@
             this.buttonIntallLibs.ForeColorMouseEnter = System.Drawing.Color.White;
             this.buttonIntallLibs.ForeColorMouseLeave = System.Drawing.Color.Black;
             this.buttonIntallLibs.ForeColorOnClick = System.Drawing.Color.White;
-            this.buttonIntallLibs.Location = new System.Drawing.Point(150, 276);
+            this.buttonIntallLibs.Location = new System.Drawing.Point(158, 276);
             this.buttonIntallLibs.Name = "buttonIntallLibs";
             this.buttonIntallLibs.Size = new System.Drawing.Size(109, 33);
             this.buttonIntallLibs.TabIndex = 5;
@@ -192,7 +192,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(616, 364);
+            this.ClientSize = new System.Drawing.Size(620, 360);
             this.ControlBox = false;
             this.Controls.Add(this.checkBoxOpen);
             this.Controls.Add(this.buttonCreate);

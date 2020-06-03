@@ -1,22 +1,14 @@
-﻿using Scaduino.Components;
+﻿using Scaduino.ArduinoBoard;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Drawing;
 using System.Drawing.Design;
-using System.Globalization;
-using System.Reflection;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
 namespace Scaduino.Windows
 {
-    class SelectTagEditor : UITypeEditor
+    class ArduinoPinsEditor : UITypeEditor
     {
         public override UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
         {
@@ -27,10 +19,10 @@ namespace Scaduino.Windows
         {
             if ((provider != null) && (((IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService))) != null))
             {
-                var form = new SelectTag();
+                var form = new ArduinoPins(value as Pin[]);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    value = form.SelectedTag;
+                    value = form.Pins.ToArray();
                 }
             }
             return value;

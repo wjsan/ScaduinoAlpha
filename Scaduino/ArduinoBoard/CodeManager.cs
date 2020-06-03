@@ -1,8 +1,10 @@
 ﻿using Scaduino.Windows;
 using System;
 using System.ComponentModel;
+using System.Drawing.Design;
 using System.IO;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace Scaduino.ArduinoBoard
 {
@@ -12,8 +14,17 @@ namespace Scaduino.ArduinoBoard
         private Arduino arduino;
         private readonly string scaduinoDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Scaduino";
 
+        /// <summary>
+        /// Directory path of source code file
+        /// </summary>
+        [Description("Directory path of source code file")]
+        [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string CodeDirectory { get; set; }
 
+        /// <summary>
+        /// Generate source code for scaduino communication
+        /// </summary>
+        [Description("Generate source code for scaduino communication")]
         public bool CreateCode
         {
             get => false;
@@ -41,6 +52,10 @@ namespace Scaduino.ArduinoBoard
             }
         }
 
+        /// <summary>
+        /// Save scaduino modifications to source code file
+        /// </summary>
+        [Description("Save scaduino modifications to source code file")]
         public bool Save
         {
             get => false;
@@ -57,6 +72,10 @@ namespace Scaduino.ArduinoBoard
             }
         }
 
+        /// <summary>
+        /// Open source code on external editor
+        /// </summary>
+        [Description("Open source code on external editor")]
         public bool Open
         {
             get => false;

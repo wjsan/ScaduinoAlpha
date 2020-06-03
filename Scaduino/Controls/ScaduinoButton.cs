@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Scaduino.Components;
-using System.ComponentModel.Design;
 using Scaduino.Protocols;
 using Scaduino.Windows;
 using System.Drawing.Design;
-using System.Windows.Markup;
 
 namespace Scaduino.Controls
 {
@@ -25,60 +18,64 @@ namespace Scaduino.Controls
             TurnOff,
             Toggle
         }
-        
-        public ButtonMode Mode { get; set; }
 
-        private ICommunicationDriver communicationLink;
-        private Tag tag;
+        private CommunicationChannels communicationSource;
 
-        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
-        new public Tag Tag 
-        { 
+        /// <summary>
+        /// Collection of communication channels to be used for this controller
+        /// </summary>
+        [Description("Collection of communication channels to be used for this controller")]
+        public CommunicationChannels CommunicationSource
+        {
             get
             {
-                if (communicationLink != null)
-                    Editors.SelectTag.Tags = communicationLink.Tags;
-                return tag; 
+                GlobalData.SelectedCommunicationChannels = communicationSource;
+                return communicationSource;
             }
-            set
-            {
-                tag = value;
-                Editors.SelectTag.SelectedTag = tag;
-            }
+            set => communicationSource = value;
         }
 
-        public ICommunicationDriver CommunicationLink
-        {
-            get => communicationLink;
-            set
-            {
-                communicationLink = value;
-                if(communicationLink != null)
-                    Editors.SelectTag.Tags = communicationLink.Tags;
-            }
-        }
+        /// <summary>
+        /// Operation mode of this button
+        /// </summary>
+        [Description("Operation mode of this button")]
+        public ButtonMode Mode { get; set; }
+
+        /// <summary>
+        /// Tag linked to this controller
+        /// </summary>
+        [Description("Tag linked to this controller")]
+        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        new public Tag Tag { get; set; }
+
+        /// <summary>
+        /// Name of Tag linked to this controller
+        /// </summary>
+        [Description("Name of Tag linked to this controller")]
+        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        public string TagName { get => Tag.Name; }
 
         public ScaduinoButton()
         {
             InitializeComponent();
+            communicationSource = GlobalData.SelectedCommunicationChannels;
         }
 
         private void Button_MouseDown(object sender, MouseEventArgs e)
         {
-            if (communicationLink == null) return;
             switch (Mode)
             {
                 case ButtonMode.Pulse:
-                    communicationLink.SetReg(Tag.getAddress(), 1);
+                    Tag.Value = 1;
                     break;
                 case ButtonMode.TurnOn:
-                    communicationLink.SetReg(Tag.getAddress(), 1);
+                    Tag.Value = 1;
                     break;
                 case ButtonMode.TurnOff:
-                    communicationLink.SetReg(Tag.getAddress(), 0);
+                    Tag.Value = 0;
                     break;
                 case ButtonMode.Toggle:
-                    communicationLink.ToggleReg(Tag.getAddress());
+                    Tag.Value = Tag.Value == 1 ? 0 : 1;
                     break;
                 default:
                     break;
@@ -87,17 +84,16 @@ namespace Scaduino.Controls
 
         private void Button_MouseUp(object sender, MouseEventArgs e)
         {
-            if (communicationLink == null) return;
             switch (Mode)
             {
                 case ButtonMode.Pulse:
-                    communicationLink.SetReg(Tag.getAddress(), 0);
+                    Tag.Value = 0;
                     break;
                 case ButtonMode.TurnOn:
-                    communicationLink.SetReg(Tag.getAddress(), 1);
+                    Tag.Value = 1;
                     break;
                 case ButtonMode.TurnOff:
-                    communicationLink.SetReg(Tag.getAddress(), 0);
+                    Tag.Value = 0;
                     break;
                 case ButtonMode.Toggle:
                     break;

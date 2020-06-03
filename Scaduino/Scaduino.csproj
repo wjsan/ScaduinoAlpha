@@ -39,6 +39,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,6 +68,7 @@
     </Compile>
     <Compile Include="ArduinoBoard\Pin.cs" />
     <Compile Include="Components\Tag.cs" />
+    <Compile Include="Controls\LabelStyle.cs" />
     <Compile Include="Controls\ScaduinoButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -74,21 +76,46 @@
       <DependentUpon>ScaduinoButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IScaduinoControl.cs" />
-    <Compile Include="Editors.cs" />
+    <Compile Include="GlobalData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocols\BqBusSerialDriver.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Protocols\BqBusSerialDriver.cs" />
     <Compile Include="Protocols\BqBusSerialDriver.Designer.cs">
       <DependentUpon>BqBusSerialDriver.cs</DependentUpon>
     </Compile>
-    <Compile Include="Protocols\ICommunicationDriver.cs" />
+    <Compile Include="Protocols\CommunicationChannels.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Protocols\CommunicationChannels.Designer.cs">
+      <DependentUpon>CommunicationChannels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protocols\CommunicationDriver.cs" />
+    <Compile Include="Windows\ArduinoPins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ArduinoPins.Designer.cs">
+      <DependentUpon>ArduinoPins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ArduinoPinsEditor.cs" />
+    <Compile Include="Windows\CommunicationChannelsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\CommunicationChannelsForm.Designer.cs">
+      <DependentUpon>CommunicationChannelsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CommunicationChannelsEditor.cs" />
     <Compile Include="Windows\CreateCodeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\CreateCodeDialog.Designer.cs">
       <DependentUpon>CreateCodeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SelectCommunicationChannel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SelectCommunicationChannel.Designer.cs">
+      <DependentUpon>SelectCommunicationChannel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectCommunicationChannelEditor.cs" />
     <Compile Include="Windows\SelectTag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,12 +136,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Windows\ArduinoPins.resx">
+      <DependentUpon>ArduinoPins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\CommunicationChannelsForm.resx">
+      <DependentUpon>CommunicationChannelsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\CreateCodeDialog.resx">
       <DependentUpon>CreateCodeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SelectCommunicationChannel.resx">
+      <DependentUpon>SelectCommunicationChannel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SelectTag.resx">
       <DependentUpon>SelectTag.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

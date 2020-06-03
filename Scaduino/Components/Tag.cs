@@ -14,8 +14,16 @@ namespace Scaduino.Components
 
         public event EventHandler TagValueChanged;
 
+        /// <summary>
+        /// Name of tag
+        /// </summary>
+        [Description("Name of tag")]
         public string Name { get => name; set => name = RemoveSpecialCharacters(value); }
 
+        /// <summary>
+        /// Value of tag
+        /// </summary>
+        [Description("Value of tag")]
         [Browsable(false)]
         public int Value 
         { 

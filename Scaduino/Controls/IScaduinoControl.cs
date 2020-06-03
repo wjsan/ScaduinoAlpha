@@ -9,10 +9,9 @@ namespace Scaduino.Controls
 {
     public interface IScaduinoControl
     {
-        string Name { get; set; }
-        
-        Tag Tag { get; set; }
+        CommunicationChannels CommunicationSource { get; set; }
 
-        ICommunicationDriver CommunicationLink { get; set; }
+        Tag Tag { get; set; }
+        string TagName { get; }
     }
 }

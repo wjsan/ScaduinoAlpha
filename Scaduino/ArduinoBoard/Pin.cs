@@ -30,10 +30,34 @@ namespace Scaduino.ArduinoBoard
             "OUTPUT"
         };
 
-        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        /// <summary>
+        /// Tag linked to this pin
+        /// </summary>
+        [Description("Tag linked to this pin")]
         public Tag Tag { get; set; }
+
+        /// <summary>
+        /// Name of Tag linked to this pin
+        /// </summary>
+        [Description("Name of Tag linked to this pin")]
+        public string TagName { get => Tag.Name;  }
+
+        /// <summary>
+        /// Pin number used in pinMode, digitalWrite and digitalRead methods
+        /// </summary>
+        [Description("Pin number used in pinMode, digitalWrite and digitalRead methods")]
         public int Number { get; set; }
+
+        /// <summary>
+        /// Mode of this pin. Use analog input/output to link this pin with numeric tags.
+        /// </summary>
+        [Description("Mode of this pin. Use analog input/output to link this pin with numeric tags.")]
         public PinType Mode { get; set; }
+
+        /// <summary>
+        /// Name of this pin. Used to give an name to constant number of this pin.
+        /// </summary>
+        [Description("Name of this pin. Used to give an name to constant number of this pin.")]
         public string Name { get; set; }
 
         public Pin()
@@ -59,7 +83,7 @@ namespace Scaduino.ArduinoBoard
             {
                 case PinType.Input:
                     output += $"\tint {Name}Value = digitalRead({Name});\n";
-                    output += $"\tscaduino.setReg({Tag.Name}_TAG, {Name}Value);\n\n";
+                    output += $"\tscaduino.setReg({Tag.Name}_REG, {Name}Value);\n\n";
                     break;
                 case PinType.Output:
                     output += $"\tint {Tag.Name} = scaduino.getReg({Tag.Name}_REG);\n";
@@ -67,11 +91,11 @@ namespace Scaduino.ArduinoBoard
                     break;
                 case PinType.InputPullUp:
                     output += $"\tint {Name}Value = !digitalRead({Name});\n";
-                    output += $"\tscaduino.setReg({Tag.Name}_TAG, {Name}Value);\n\n";
+                    output += $"\tscaduino.setReg({Tag.Name}_REG, {Name}Value);\n\n";
                     break;
                 case PinType.AnalogInput:
                     output += $"\tint {Name}Value = !digitalRead({Name});\n";
-                    output += $"\tscaduino.setReg({Tag.Name}_TAG, {Name}Value);\n\n";
+                    output += $"\tscaduino.setReg({Tag.Name}_REG, {Name}Value);\n\n";
                     break;
                 case PinType.AnalogOutput:
                     output += $"\tint {Tag.Name} = scaduino.getReg({Tag.Name}_REG);\n";

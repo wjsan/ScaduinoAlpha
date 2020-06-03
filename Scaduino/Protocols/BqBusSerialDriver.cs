@@ -7,7 +7,8 @@ using CommunicationProtocols;
 
 namespace Scaduino.Protocols
 {
-    public partial class BqBusSerialDriver : Component, Scaduino.Protocols.ICommunicationDriver
+    [ToolboxItem(false)]
+    public partial class BqBusSerialDriver : CommunicationDriver
     {
         System.Timers.Timer timer = new System.Timers.Timer();
 
@@ -15,9 +16,24 @@ namespace Scaduino.Protocols
 
         private BqBusSerial bqBusSerial;
 
+        /// <summary>
+        /// Name to reference this communication driver
+        /// </summary>
+        [Description("Name to reference this communication driver")]
+        override public string Name { get; set; }
+
+        /// <summary>
+        /// Auto connect to device at application startup
+        /// </summary>
+        [Description("Auto connect to device at application startup")]
+        [DefaultValue(true)]
         public bool AutoConnect { get; set; }
 
-        public Tag[] Tags
+        /// <summary>
+        /// Tags collection to be handled by this communiction driver
+        /// </summary>
+        [Description("Tags collection to be handled by this communiction driver")]
+        override public Tag[] Tags
         {
             get => tags;
             set
@@ -66,13 +82,14 @@ namespace Scaduino.Protocols
 
         public BqBusSerialDriver(IContainer container)
         {
-            container.Add(this);
+            //container.Add(this);
             Initialize();
             InitializeComponent();
         }
 
         private void Initialize()
         {
+            Name = "BqBusSerial";
             bqBusSerial = new BqBusSerial();
             bqBusSerial.Serial = new System.IO.Ports.SerialPort();
             bqBusSerial.DataRecieved += BqBusSerial_DataRecieved;
@@ -98,40 +115,40 @@ namespace Scaduino.Protocols
             }
         }
 
-        public string GetInstanceCode()
+        override public string GetInstanceCode()
         {
             string code = "BqBus scaduino(" + bqBusSerial.Size + ");\n";
             return code;
         }
 
-        public string GetInitCode()
+        override public string GetInitCode()
         {
             string code = "\tSerial.begin(" + BaudRate + ");\n";
             code += "\tscaduino.setBus(&Serial);\n";
             return code;
         }
 
-        public void SetReg(int address, int value)
+        override public void SetReg(int address, int value)
         {
             bqBusSerial.SetReg(address, value);
         }
 
-        public int GetReg(int address)
+        new public int GetReg(int address)
         {
             return bqBusSerial.GetReg(address);
         }
 
-        public void ToggleReg(int address)
+        override public void ToggleReg(int address)
         {
             bqBusSerial.ToggleReg(address);
         }
 
-        public void Connect()
+        override public void Connect()
         {
             bqBusSerial.Connect();
         }
 
-        public void Disconnect()
+        override public void Disconnect()
         {
             bqBusSerial.Disconnect();
         }

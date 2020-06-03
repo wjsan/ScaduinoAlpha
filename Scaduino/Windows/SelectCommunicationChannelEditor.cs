@@ -1,22 +1,12 @@
-﻿using Scaduino.Components;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Drawing;
 using System.Drawing.Design;
-using System.Globalization;
-using System.Reflection;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
 namespace Scaduino.Windows
 {
-    class SelectTagEditor : UITypeEditor
+    public class SelectCommunicationChannelEditor : UITypeEditor
     {
         public override UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
         {
@@ -27,10 +17,10 @@ namespace Scaduino.Windows
         {
             if ((provider != null) && (((IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService))) != null))
             {
-                var form = new SelectTag();
+                var form = new SelectCommunicationChannel();
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    value = form.SelectedTag;
+                    value = form.Driver;
                 }
             }
             return value;

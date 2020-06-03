@@ -1,46 +1,66 @@
 ﻿using Scaduino.Components;
 using Scaduino.Protocols;
-using System;
-using System.Collections.Generic;
+using Scaduino.Windows;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Xml.Serialization;
-using Scaduino.ArduinoBoard;
+using System.Drawing.Design;
+using System.Windows.Forms;
 
 namespace Scaduino.ArduinoBoard
 {
-    [DisplayName("Arduino")]
-    [Description("Custom toolbox item from package LoadToolboxMembers.")]
-    [ToolboxItem(true)]
-    //[System.Drawing.ToolboxBitmap(typeof(Arduino), "Control1.bmp")]
     public partial class Arduino : Component
     {
-        private ICommunicationDriver communicationLink;
+        private CommunicationChannels communicationSource;
+        private BqBusSerialDriver communicationChannel;
 
-        public ICommunicationDriver CommunicationLink
+        /// <summary>
+        /// Collection of communication channels to be used for this device
+        /// </summary>
+        [Description("Collection of communication channels to be used for this device")]
+        public CommunicationChannels CommunicationSource
         {
-            get => communicationLink;
-            set
+            get
             {
-                communicationLink = value;
-                if (communicationLink != null)
-                    Editors.SelectTag.Tags = communicationLink.Tags;
+                GlobalData.SelectedCommunicationChannels = communicationSource;
+                return communicationSource;
             }
+            set => communicationSource = value;
         }
 
+        /// <summary>
+        /// "Communication driver of this device"
+        /// </summary>
+        [Description("Communication driver of this device")]
+        [Editor(typeof(SelectCommunicationChannelEditor), typeof(UITypeEditor))]
+        public BqBusSerialDriver CommunicationChannel 
+        { 
+            get
+            {
+                GlobalData.SelectedCommunicationDriver = communicationChannel;
+                return communicationChannel; 
+            }
+            set => communicationChannel = value; 
+        }
+
+        /// <summary>
+        /// "Definition of hardware pinout of this device"
+        /// </summary>
+        [Description("Definition of hardware pinout of this device")]
+        [Editor(typeof(ArduinoPinsEditor), typeof(UITypeEditor))]
         public Pin[] Pins { get; set; }
 
+        /// <summary>
+        /// "Source Code Management of this device"
+        /// </summary>
+        [Description("Source Code Management of this device")]
         public CodeManager CodeManager { get; }
 
         public string GetCode()
         {
             string code = "";
             code += "#include \"BqBus.h\"\n\n";
-            code += CommunicationLink.GetInstanceCode();
+            code += CommunicationChannel.GetInstanceCode();
             code += "\nenum Regs {\n";
-            foreach (Tag tag in CommunicationLink.Tags)
+            foreach (Tag tag in CommunicationChannel.Tags)
             {
                 code += "\t" + tag.Name + "_REG,\n";
             }
@@ -50,7 +70,7 @@ namespace Scaduino.ArduinoBoard
                 code += pin.GetDefineSnippet();
             }
             code += "\nvoid setup(){\n";
-            code += communicationLink.GetInitCode();
+            code += CommunicationChannel.GetInitCode();
             foreach (Pin pin in Pins)
             {
                 code += pin.GetSetupSnippet();
@@ -70,6 +90,7 @@ namespace Scaduino.ArduinoBoard
         {
             InitializeComponent();
             CodeManager = new CodeManager(this);
+            communicationSource = GlobalData.SelectedCommunicationChannels;
         }
 
         public Arduino(IContainer container)
@@ -77,6 +98,7 @@ namespace Scaduino.ArduinoBoard
             container.Add(this);
             InitializeComponent();
             CodeManager = new CodeManager(this);
+            communicationSource = GlobalData.SelectedCommunicationChannels;
         }
     }
 }
