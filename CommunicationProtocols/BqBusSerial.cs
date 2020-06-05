@@ -48,7 +48,7 @@ namespace BqBusNet
                 throw;
             }
             keepChangedRegs();
-            DataRecieved(sender, e);
+            DataRecieved?.Invoke(sender, e);
             sendData();
         }
 
