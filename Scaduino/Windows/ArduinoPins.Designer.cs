@@ -86,6 +86,7 @@
             this.pinProperties.ToolbarVisible = false;
             this.pinProperties.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pinProperties.ViewForeColor = System.Drawing.Color.White;
+            this.pinProperties.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.pinProperties_PropertyValueChanged);
             // 
             // label3
             // 

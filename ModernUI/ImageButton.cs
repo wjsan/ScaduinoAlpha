@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace ModernUI
 {
-    public partial class Form1 : Form
+    public partial class ImageButton : PictureBox
     {
-        public Form1()
+        public ImageButton()
         {
             InitializeComponent();
+        }
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            base.OnPaint(pe);
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿
-namespace ModernUI
+﻿namespace ModernUI
 {
-    partial class Menu
+    partial class ScreenTopBar
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -31,14 +30,13 @@ namespace ModernUI
         {
             this.SuspendLayout();
             // 
-            // Menu
+            // ScreenTopBar
             // 
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Size = new System.Drawing.Size(272, 398);
-            this.SizeChanged += new System.EventHandler(this.Menu_SizeChanged);
-            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Menu_ControlAdded);
-            this.ParentChanged += new System.EventHandler(this.Menu_ParentChanged);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Name = "ScreenTopBar";
+            this.Size = new System.Drawing.Size(274, 51);
+            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.ScreenTopBar_ControlAdded);
+            this.ParentChanged += new System.EventHandler(this.ScreenTopBar_ParentChanged);
             this.ResumeLayout(false);
 
         }

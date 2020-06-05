@@ -37,9 +37,10 @@
             this.labelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelMenu.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelMenu.Location = new System.Drawing.Point(10, 0);
+            this.labelMenu.Location = new System.Drawing.Point(0, 0);
             this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(268, 39);
+            this.labelMenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.labelMenu.Size = new System.Drawing.Size(233, 39);
             this.labelMenu.TabIndex = 0;
             this.labelMenu.Text = "menuItem";
             this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -52,9 +53,9 @@
             // 
             this.labelSelected.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelSelected.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.labelSelected.Location = new System.Drawing.Point(0, 7);
+            this.labelSelected.Location = new System.Drawing.Point(0, 0);
             this.labelSelected.Name = "labelSelected";
-            this.labelSelected.Size = new System.Drawing.Size(5, 27);
+            this.labelSelected.Size = new System.Drawing.Size(5, 39);
             this.labelSelected.TabIndex = 1;
             // 
             // MenuItem
@@ -64,8 +65,7 @@
             this.Controls.Add(this.labelSelected);
             this.Controls.Add(this.labelMenu);
             this.Name = "MenuItem";
-            this.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Size = new System.Drawing.Size(278, 39);
+            this.Size = new System.Drawing.Size(233, 39);
             this.FontChanged += new System.EventHandler(this.MenuItem_FontChanged);
             this.ForeColorChanged += new System.EventHandler(this.MenuItem_ForeColorChanged);
             this.ResumeLayout(false);

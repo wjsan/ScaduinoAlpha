@@ -96,5 +96,10 @@ namespace Scaduino.Windows
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void pinProperties_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            RenderPinsList();
+        }
     }
 }

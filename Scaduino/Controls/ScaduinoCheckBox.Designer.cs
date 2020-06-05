@@ -1,14 +1,13 @@
-﻿
-namespace ModernUI
+﻿namespace Scaduino.Controls
 {
-    partial class Menu
+    partial class ScaduinoCheckBox
     {
-        /// <summary> 
+        /// <summary>
         /// Variável de designer necessária.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Limpar os recursos que estão sendo usados.
         /// </summary>
         /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
@@ -23,7 +22,7 @@ namespace ModernUI
 
         #region Código gerado pelo Designer de Componentes
 
-        /// <summary> 
+        /// <summary>
         /// Método necessário para suporte ao Designer - não modifique 
         /// o conteúdo deste método com o editor de código.
         /// </summary>
@@ -31,14 +30,9 @@ namespace ModernUI
         {
             this.SuspendLayout();
             // 
-            // Menu
+            // ScaduinoCheckBox
             // 
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Size = new System.Drawing.Size(272, 398);
-            this.SizeChanged += new System.EventHandler(this.Menu_SizeChanged);
-            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Menu_ControlAdded);
-            this.ParentChanged += new System.EventHandler(this.Menu_ParentChanged);
+            this.CheckedChanged += new System.EventHandler(this.ScaduinoCheckBox_CheckedChanged);
             this.ResumeLayout(false);
 
         }

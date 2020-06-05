@@ -30,9 +30,12 @@ namespace Scaduino.Components
             get => _value; 
             set
             {
-                _value = value;
-                if(TagValueChanged != null)
-                    TagValueChanged(this, new EventArgs());
+                if(_value != value)
+                {
+                    _value = value;
+                    if(TagValueChanged != null)
+                        TagValueChanged(this, new EventArgs());
+                }
             }  
         }
 

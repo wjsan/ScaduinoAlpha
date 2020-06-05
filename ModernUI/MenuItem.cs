@@ -18,9 +18,34 @@ namespace ModernUI
         private Color colorMouseLeave;
         private bool autoColors;
 
-        [Localizable(true)]
-        new public string Text { get => labelMenu.Text; set => labelMenu.Text = value; }
-        public Image Image { get => labelMenu.Image; set => labelMenu.Image = value; }
+        [Localizable(true), Browsable(true)]
+        public string LabelText
+        {
+            get
+            {
+                return labelMenu.Text.Trim();
+            }
+
+            set
+            {
+                if (Image != null) value = "          " + value;
+                labelMenu.Text = value;
+            }
+        }
+
+        public Image Image
+        {
+            get
+            {
+                return labelMenu.Image;
+            }
+
+            set
+            {
+                labelMenu.Image = value;
+                LabelText = LabelText;
+            }
+        }
         public ScreenContainer ScreenContainer { get; set; }
         public Screen Screen { get; set; }
 
@@ -96,7 +121,6 @@ namespace ModernUI
             }
         }
 
-
         private void MenuItem_MouseEnter(object sender, EventArgs e)
         {
             BackColor = ColorMouseEnter;
@@ -133,18 +157,15 @@ namespace ModernUI
                 ColorSelected = c;
                 ForeColor = Parent.ForeColor;
                 Font = Parent.Font;
-                if ((c.R < 230) && (c.G < 230) && (c.B < 230))
-                {
-                    ColorMouseEnter = Color.FromArgb(255, c.R + 10, c.G + 10, c.B + 10);
-                    ColorOnClick = Color.FromArgb(255, c.R + 25, c.G + 25, c.B + 25);
-                }
-                else
-                {
-                    ColorMouseEnter = Color.FromArgb(255, c.R - 10, c.G - 10, c.B - 10);
-                    ColorOnClick = Color.FromArgb(255, c.R - 25, c.G - 25, c.B - 25);
-                }
-
+                ColorMouseEnter = Color.FromArgb(255, getColor(c.R, 10), getColor(c.G, 10), getColor(c.B, 10));
+                ColorOnClick = Color.FromArgb(255, getColor(c.R, 25), getColor(c.G, 25), getColor(c.B, 25));
             }
+        }
+
+        private int getColor(int color, int offset)
+        {
+            if (color + offset < 255) return color + offset;
+            else return color - offset;
         }
     }
 }

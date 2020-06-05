@@ -20,7 +20,7 @@ namespace Scaduino.Windows
                 var form = new CommunicationChannelsForm();
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    value = form.Drivers;
+                    value = form.Drivers.ToArray();
                 }
             }
             return value;

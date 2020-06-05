@@ -76,6 +76,36 @@
       <DependentUpon>ScaduinoButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IScaduinoControl.cs" />
+    <Compile Include="Controls\ScaduinoCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoCheckBox.Designer.cs">
+      <DependentUpon>ScaduinoCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoComboBox.Designer.cs">
+      <DependentUpon>ScaduinoComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoHScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoHScrollBar.Designer.cs">
+      <DependentUpon>ScaduinoHScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoLabel.Designer.cs">
+      <DependentUpon>ScaduinoLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoVScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoVScrollBar.Designer.cs">
+      <DependentUpon>ScaduinoVScrollBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Protocols\BqBusSerialDriver.cs" />
@@ -125,6 +155,12 @@
     <Compile Include="Windows\SelectTagEditor.cs" />
     <EmbeddedResource Include="Controls\ScaduinoButton.resx">
       <DependentUpon>ScaduinoButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ScaduinoCheckBox.resx">
+      <DependentUpon>ScaduinoCheckBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ScaduinoComboBox.resx">
+      <DependentUpon>ScaduinoComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

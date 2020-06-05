@@ -47,17 +47,17 @@
     <Compile Include="Button.Designer.cs">
       <DependentUpon>Button.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="HideMenu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="HideMenu.Designer.cs">
       <DependentUpon>HideMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageButton.Designer.cs">
+      <DependentUpon>ImageButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Component</SubType>
@@ -72,6 +72,11 @@
       <DependentUpon>MenuItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Screen.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -90,17 +95,23 @@
     <Compile Include="ScreenHeader.Designer.cs">
       <DependentUpon>ScreenHeader.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScreenTopBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScreenTopBar.Designer.cs">
+      <DependentUpon>ScreenTopBar.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Button.resx">
       <DependentUpon>Button.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HideMenu.resx">
       <DependentUpon>HideMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageButton.resx">
+      <DependentUpon>ImageButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -108,11 +119,18 @@
     <EmbeddedResource Include="MenuItem.resx">
       <DependentUpon>MenuItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenContainer.resx">
       <DependentUpon>ScreenContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenHeader.resx">
       <DependentUpon>ScreenHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenTopBar.resx">
+      <DependentUpon>ScreenTopBar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

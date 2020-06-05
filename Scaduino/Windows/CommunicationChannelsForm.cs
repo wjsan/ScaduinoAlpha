@@ -9,7 +9,7 @@ namespace Scaduino.Windows
 {
     public partial class CommunicationChannelsForm : Form
     {
-        public CommunicationDriver[] Drivers { get; set; }
+        public List<CommunicationDriver> Drivers { get; set; }
         private CommunicationDriver driver;
 
         public CommunicationChannelsForm()
@@ -27,7 +27,7 @@ namespace Scaduino.Windows
             catch (Exception)
             {
             }
-            Drivers = GlobalData.SelectedCommunicationChannels.Drivers;
+            Drivers = GlobalData.SelectedCommunicationChannels.Drivers.ToList();
             RenderCommunicationList();
         }
 
@@ -45,29 +45,28 @@ namespace Scaduino.Windows
         {
             try
             {
-                List<CommunicationDriver> list;
                 if (Drivers == null)
                 {
-                    list = new List<CommunicationDriver>();
+                    Drivers = new List<CommunicationDriver>();
                 }
                 else
                 {
-                    list = Drivers.ToList();
+                    Drivers = Drivers.ToList();
                 }
                 if (CheckDriverExists(comboBoxDriveType.SelectedItem.ToString()))
                 {
+                    MessageBox.Show($"Driver {comboBoxDriveType.SelectedItem.ToString()} already exists. Change driver name and try again.");
                     return;
                 }
                 switch (comboBoxDriveType.SelectedIndex)
                 {
                     case 0:
                         var newDrive = new BqBusSerialDriver();
-                        list.Add(newDrive);
+                        Drivers.Add(newDrive);
                         break;
                     default:
                         break;
                 }
-                Drivers = list.ToArray();
                 RenderCommunicationList();
                 listBoxCommunicationLinks.SelectedIndex = listBoxCommunicationLinks.Items.Count - 1;
 
@@ -117,6 +116,11 @@ namespace Scaduino.Windows
             int idx = listBoxCommunicationLinks.SelectedIndex;
             driver = Drivers[idx];
             commProperties.SelectedObject = driver;
+        }
+
+        private void commProperties_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            RenderCommunicationList();
         }
     }
 }

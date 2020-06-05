@@ -23,6 +23,12 @@ namespace Scaduino.Protocols
         [Description("Name to reference this communication driver")]
         virtual public string Name { get; set; }
 
+        /// <summary>
+        /// Auto connect to device at application startup
+        /// </summary>
+        [Description("Auto connect to device at application startup")]
+        virtual public bool AutoConnect { get; set; }
+
         virtual public void Connect()
         {
             throw new NotImplementedException();

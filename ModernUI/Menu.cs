@@ -14,37 +14,39 @@ namespace ModernUI
     {
         private System.Timers.Timer timerAnimation = new System.Timers.Timer();
         private int step = -1;
-        private int previousSize = 0;
 
-        public Color ButtonHideOnOnverColor { get ; set; }
+        public Color ButtonHideOnOnverColor { get; set; }
         public bool Hidden { get; set; } = false;
+        public int SizeWhenHide {get; set;}
+        public int SizeWhenShow { get; set;}
 
         public Menu()
         { 
             InitializeComponent();
             timerAnimation.Interval = 1;
             timerAnimation.Elapsed += TimerAnimation_Elapsed;
-            previousSize = this.Width;
+            SizeWhenShow = Width;
+            SizeWhenHide = 0;
         }
 
         private void TimerAnimation_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (this.Width > 20 && (this.Width + 10) < previousSize)
+            if ((Width - (-step * 10)) > SizeWhenHide && (Width + (step * 10)) < SizeWhenShow)
             {
-                this.Invoke((MethodInvoker)delegate
+                Invoke((MethodInvoker)delegate
                {
-                   this.Width += step * 10;
+                   Width += step * 10;
                });
             }
             else
             {
-                this.Invoke((MethodInvoker)delegate
+                Invoke((MethodInvoker)delegate
                 {
-                    this.Width += step;
+                    Width += step;
                 });
 
             }
-            if (this.Width == 10 || this.Width == previousSize)
+            if (Width == SizeWhenHide || Width == SizeWhenShow)
             {
                 timerAnimation.Stop();
             }
@@ -61,9 +63,8 @@ namespace ModernUI
         public void HideMenu()
         {
             if (Hidden) return;
-            previousSize = this.Width;
             step = -1;
-            this.Width += step;
+            Width += step;
             timerAnimation.Start();
             Hidden = true;
         }
@@ -72,7 +73,7 @@ namespace ModernUI
         {
             if (!Hidden) return;
             step = 1;
-            this.Width += step;
+            Width += step;
             timerAnimation.Start();
             Hidden = false;
         }
@@ -85,8 +86,15 @@ namespace ModernUI
 
         private void Menu_ParentChanged(object sender, EventArgs e)
         {
-            if (Disposing || IsDisposed) return;
-            BackColor = Parent.BackColor;
+            if (Disposing || IsDisposed || BackColor != Color.Transparent) return;
+            if(DesignMode)
+                BackColor = Parent.BackColor;
+        }
+
+        private void Menu_SizeChanged(object sender, EventArgs e)
+        {
+            if(DesignMode)
+                SizeWhenShow = Width;
         }
     }
 }

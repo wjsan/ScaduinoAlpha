@@ -153,6 +153,7 @@
             this.commProperties.ToolbarVisible = false;
             this.commProperties.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.commProperties.ViewForeColor = System.Drawing.Color.White;
+            this.commProperties.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.commProperties_PropertyValueChanged);
             // 
             // label2
             // 

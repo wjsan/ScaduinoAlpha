@@ -1,7 +1,6 @@
-﻿
-namespace ModernUI
+﻿namespace Scaduino.Controls
 {
-    partial class Menu
+    partial class ScaduinoComboBox
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -31,14 +30,9 @@ namespace ModernUI
         {
             this.SuspendLayout();
             // 
-            // Menu
+            // ScaduinoComboBox
             // 
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Size = new System.Drawing.Size(272, 398);
-            this.SizeChanged += new System.EventHandler(this.Menu_SizeChanged);
-            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Menu_ControlAdded);
-            this.ParentChanged += new System.EventHandler(this.Menu_ParentChanged);
+            this.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ResumeLayout(false);
 
         }

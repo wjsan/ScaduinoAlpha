@@ -26,8 +26,7 @@ namespace Scaduino.Protocols
         /// Auto connect to device at application startup
         /// </summary>
         [Description("Auto connect to device at application startup")]
-        [DefaultValue(true)]
-        public bool AutoConnect { get; set; }
+        override public bool AutoConnect { get; set; }
 
         /// <summary>
         /// Tags collection to be handled by this communiction driver
@@ -80,13 +79,6 @@ namespace Scaduino.Protocols
             InitializeComponent();
         }
 
-        public BqBusSerialDriver(IContainer container)
-        {
-            //container.Add(this);
-            Initialize();
-            InitializeComponent();
-        }
-
         private void Initialize()
         {
             Name = "BqBusSerial";
@@ -95,13 +87,15 @@ namespace Scaduino.Protocols
             bqBusSerial.DataRecieved += BqBusSerial_DataRecieved;
             timer.Elapsed += Timer_Elapsed;
             timer.Interval = 500;
-            timer.Start();
+            if (!GlobalData.IsInDesignMode)
+            {
+                timer.Start();
+            }
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (AutoConnect)
-                Connect();
+            Connect();
             timer.Stop();
         }
 
@@ -110,7 +104,7 @@ namespace Scaduino.Protocols
             int i = 0;
             foreach (var tag in Tags)
             {
-                tag.Value = bqBusSerial.GetReg(i);
+                tag.Value  = bqBusSerial.GetReg(i);
                 i++;
             }
         }
@@ -133,7 +127,7 @@ namespace Scaduino.Protocols
             bqBusSerial.SetReg(address, value);
         }
 
-        new public int GetReg(int address)
+        override public int GetReg(int address)
         {
             return bqBusSerial.GetReg(address);
         }
