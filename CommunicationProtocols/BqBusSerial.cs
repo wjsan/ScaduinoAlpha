@@ -6,7 +6,7 @@ using System.IO.Ports;
 
 namespace BqBusNet
 {
-    public partial class BqBusSerial : Component, ICommunicationProtocol, IRegsHandler, IConnectionHandler
+    public partial class BqBusSerial : Component, ICommunicationEvents, IRegsHandler, IConnectionHandler
     {
         private string[] previousRegs;
         private string[] regs;

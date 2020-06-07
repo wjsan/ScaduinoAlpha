@@ -47,7 +47,7 @@
       <DependentUpon>BqBusSerial.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="ICommunicationProtocol.cs" />
+    <Compile Include="ICommunicationEvents.cs" />
     <Compile Include="IConnectionHandler.cs" />
     <Compile Include="IRegsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

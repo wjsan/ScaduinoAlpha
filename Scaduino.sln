@@ -4,13 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaduino", "Scaduino\Scaduino.csproj", "{BB09FB35-32ED-4F08-AA54-AF46D6D501E0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73} = {F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI", "ModernUI\ModernUI.csproj", "{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationProtocols", "CommunicationProtocols\CommunicationProtocols.csproj", "{751E754E-FAED-4042-BA9A-8B66F43F40B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{0F85873D-E1C5-4B84-896D-206B1729F498}"
 EndProject
@@ -24,14 +17,6 @@ Global
 		{BB09FB35-32ED-4F08-AA54-AF46D6D501E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB09FB35-32ED-4F08-AA54-AF46D6D501E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB09FB35-32ED-4F08-AA54-AF46D6D501E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}.Release|Any CPU.Build.0 = Release|Any CPU
-		{751E754E-FAED-4042-BA9A-8B66F43F40B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{751E754E-FAED-4042-BA9A-8B66F43F40B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{751E754E-FAED-4042-BA9A-8B66F43F40B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{751E754E-FAED-4042-BA9A-8B66F43F40B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F85873D-E1C5-4B84-896D-206B1729F498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F85873D-E1C5-4B84-896D-206B1729F498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F85873D-E1C5-4B84-896D-206B1729F498}.Release|Any CPU.ActiveCfg = Release|Any CPU

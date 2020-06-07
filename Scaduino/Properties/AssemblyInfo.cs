@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
 [assembly: AssemblyTitle("Scaduino")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Open-source framework to build SCADA applications using C#, .Net, and Windows Forms tools.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("BINARY_QUANTUM")]
 [assembly: AssemblyProduct("Scaduino")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © BINARY_QUANTUM 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

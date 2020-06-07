@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+    </dependencies>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/WesleyJoseSantos/Scaduino/</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>First version of Scaduino.</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>Scaduino Arduino BINARY_QUANTUM</tags>
+  </metadata>
+</package>

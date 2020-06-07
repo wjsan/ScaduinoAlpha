@@ -1,10 +1,7 @@
 ﻿using CommunicationProtocols;
 using Scaduino.Components;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace Scaduino.Protocols
 {
@@ -39,6 +36,7 @@ namespace Scaduino.Protocols
             throw new NotImplementedException();
         }
 
+        public virtual string GetLibraryCode() { return (""); }
         public virtual string GetInitCode() { return (""); }
         public virtual string GetInstanceCode() { return (""); }
 

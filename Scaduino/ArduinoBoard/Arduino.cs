@@ -1,9 +1,9 @@
 ﻿using Scaduino.Components;
 using Scaduino.Protocols;
+using Scaduino.Protocols.BqBus;
 using Scaduino.Windows;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Windows.Forms;
 
 namespace Scaduino.ArduinoBoard
 {
@@ -57,7 +57,7 @@ namespace Scaduino.ArduinoBoard
         public string GetCode()
         {
             string code = "";
-            code += "#include \"BqBus.h\"\n\n";
+            code += CommunicationChannel.GetLibraryCode();
             code += CommunicationChannel.GetInstanceCode();
             code += "\nenum Regs {\n";
             foreach (Tag tag in CommunicationChannel.Tags)

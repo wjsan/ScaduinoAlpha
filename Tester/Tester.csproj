@@ -77,14 +77,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommunicationProtocols\CommunicationProtocols.csproj">
-      <Project>{751e754e-faed-4042-ba9a-8b66f43f40b8}</Project>
-      <Name>CommunicationProtocols</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModernUI\ModernUI.csproj">
-      <Project>{f12ea0f1-dfc1-41c6-a02e-4f3b975f2f73}</Project>
-      <Name>ModernUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Scaduino\Scaduino.csproj">
       <Project>{bb09fb35-32ed-4f08-aa54-af46d6d501e0}</Project>
       <Name>Scaduino</Name>

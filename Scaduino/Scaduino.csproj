@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BB09FB35-32ED-4F08-AA54-AF46D6D501E0}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -100,6 +100,42 @@
     <Compile Include="Controls\ScaduinoLabel.Designer.cs">
       <DependentUpon>ScaduinoLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ScaduinoListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoListBox.Designer.cs">
+      <DependentUpon>ScaduinoListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoNumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoNumericTextBox.Designer.cs">
+      <DependentUpon>ScaduinoNumericTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoNumericUpDown.Designer.cs">
+      <DependentUpon>ScaduinoNumericUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoPictureBox.Designer.cs">
+      <DependentUpon>ScaduinoPictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoProgressBar.Designer.cs">
+      <DependentUpon>ScaduinoProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaduinoRadioButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoRadioButton.Designer.cs">
+      <DependentUpon>ScaduinoRadioButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ScaduinoVScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -107,9 +143,69 @@
       <DependentUpon>ScaduinoVScrollBar.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalData.cs" />
+    <Compile Include="ModernUI\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\HideMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\HideMenu.Designer.cs">
+      <DependentUpon>HideMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\ImageButton.Designer.cs">
+      <DependentUpon>ImageButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\Menu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\MenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModernUI\MenuItem.Designer.cs">
+      <DependentUpon>MenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\Screen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\Screen.Designer.cs">
+      <DependentUpon>Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\ScreenContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\ScreenContainer.Designer.cs">
+      <DependentUpon>ScreenContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\ScreenHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\ScreenHeader.Designer.cs">
+      <DependentUpon>ScreenHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModernUI\ScreenTopBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModernUI\ScreenTopBar.Designer.cs">
+      <DependentUpon>ScreenTopBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocols\BqBusSerialDriver.cs" />
-    <Compile Include="Protocols\BqBusSerialDriver.Designer.cs">
+    <Compile Include="Protocols\BqBus\BqBusSerial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Protocols\BqBus\BqBusSerial.Designer.cs">
+      <DependentUpon>BqBusSerial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protocols\BqBus\BqBusSerialDriver.cs" />
+    <Compile Include="Protocols\BqBus\BqBusSerialDriver.Designer.cs">
       <DependentUpon>BqBusSerialDriver.cs</DependentUpon>
     </Compile>
     <Compile Include="Protocols\CommunicationChannels.cs">
@@ -119,6 +215,9 @@
       <DependentUpon>CommunicationChannels.cs</DependentUpon>
     </Compile>
     <Compile Include="Protocols\CommunicationDriver.cs" />
+    <Compile Include="Protocols\ICommunicationEvents.cs" />
+    <Compile Include="Protocols\IConnectionHandler.cs" />
+    <Compile Include="Protocols\IRegsHandler.cs" />
     <Compile Include="Windows\ArduinoPins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +261,30 @@
     <EmbeddedResource Include="Controls\ScaduinoComboBox.resx">
       <DependentUpon>ScaduinoComboBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\Button.resx">
+      <DependentUpon>Button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\HideMenu.resx">
+      <DependentUpon>HideMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\ImageButton.resx">
+      <DependentUpon>ImageButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\MenuItem.resx">
+      <DependentUpon>MenuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\ScreenContainer.resx">
+      <DependentUpon>ScreenContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\ScreenHeader.resx">
+      <DependentUpon>ScreenHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModernUI\ScreenTopBar.resx">
+      <DependentUpon>ScreenTopBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -172,6 +295,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Protocols\BqBus\BqBusSerial.resx">
+      <DependentUpon>BqBusSerial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\ArduinoPins.resx">
       <DependentUpon>ArduinoPins.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,16 +323,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommunicationProtocols\CommunicationProtocols.csproj">
-      <Project>{751E754E-FAED-4042-BA9A-8B66F43F40B8}</Project>
-      <Name>CommunicationProtocols</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ModernUI\ModernUI.csproj">
-      <Project>{F12EA0F1-DFC1-41C6-A02E-4F3B975F2F73}</Project>
-      <Name>ModernUI</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Icons\scaduinoIcon.png" />

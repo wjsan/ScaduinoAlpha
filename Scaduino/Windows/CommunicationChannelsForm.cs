@@ -61,7 +61,7 @@ namespace Scaduino.Windows
                 switch (comboBoxDriveType.SelectedIndex)
                 {
                     case 0:
-                        var newDrive = new BqBusSerialDriver();
+                        var newDrive = new Protocols.BqBus.BqBusSerialDriver();
                         Drivers.Add(newDrive);
                         break;
                     default:

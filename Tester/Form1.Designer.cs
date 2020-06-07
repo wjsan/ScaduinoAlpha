@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Scaduino.Protocols.BqBusSerialDriver bqBusSerialDriver1 = new Scaduino.Protocols.BqBusSerialDriver();
+            Scaduino.Protocols.BqBus.BqBusSerialDriver bqBusSerialDriver1 = new Scaduino.Protocols.BqBus.BqBusSerialDriver();
             Scaduino.Components.Tag tag1 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag2 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag3 = new Scaduino.Components.Tag();
@@ -55,6 +55,8 @@
             this.scaduinoButton1 = new Scaduino.Controls.ScaduinoButton();
             this.arduino1 = new Scaduino.ArduinoBoard.Arduino(this.components);
             this.scaduinoLabel1 = new Scaduino.Controls.ScaduinoLabel();
+            this.scaduinoPictureBox1 = new Scaduino.Controls.ScaduinoPictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.scaduinoPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -230,11 +232,23 @@
             this.scaduinoLabel1.Tag = tag6;
             this.scaduinoLabel1.Text = "Desligado";
             // 
+            // scaduinoPictureBox1
+            // 
+            this.scaduinoPictureBox1.CommunicationSource = null;
+            this.scaduinoPictureBox1.Images = null;
+            this.scaduinoPictureBox1.Location = new System.Drawing.Point(53, 145);
+            this.scaduinoPictureBox1.Name = "scaduinoPictureBox1";
+            this.scaduinoPictureBox1.Size = new System.Drawing.Size(100, 89);
+            this.scaduinoPictureBox1.TabIndex = 7;
+            this.scaduinoPictureBox1.TabStop = false;
+            this.scaduinoPictureBox1.Tag = null;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 176);
+            this.ClientSize = new System.Drawing.Size(912, 273);
+            this.Controls.Add(this.scaduinoPictureBox1);
             this.Controls.Add(this.scaduinoLabel1);
             this.Controls.Add(this.scaduinoHScrollBar1);
             this.Controls.Add(this.label2);
@@ -245,6 +259,7 @@
             this.Controls.Add(this.scaduinoButton1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.scaduinoPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +276,6 @@
         private Scaduino.Controls.ScaduinoHScrollBar scaduinoHScrollBar1;
         private System.Windows.Forms.Label label2;
         private Scaduino.Controls.ScaduinoLabel scaduinoLabel1;
+        private Scaduino.Controls.ScaduinoPictureBox scaduinoPictureBox1;
     }
 }

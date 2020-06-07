@@ -8,7 +8,6 @@ using System.Drawing.Design;
 
 namespace Scaduino.Controls
 {
-    [Serializable]
     public partial class ScaduinoButton : ModernUI.Button, IScaduinoControl
     {
         public enum ButtonMode
