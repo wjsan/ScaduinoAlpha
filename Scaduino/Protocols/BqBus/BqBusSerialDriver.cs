@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using CommunicationProtocols;
+using System.IO.Ports;
+using System.Linq;
 
 namespace Scaduino.Protocols.BqBus
 {
@@ -87,6 +89,15 @@ namespace Scaduino.Protocols.BqBus
             bqBusSerial.DataRecieved += BqBusSerial_DataRecieved;
             timer.Elapsed += Timer_Elapsed;
             timer.Interval = 500;
+            try
+            {
+                PortName = SerialPort.GetPortNames().Last();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             if (!GlobalData.IsInDesignMode)
             {
                 timer.Start();

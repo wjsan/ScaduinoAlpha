@@ -28,20 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            Scaduino.Protocols.BqBus.BqBusSerialDriver bqBusSerialDriver1 = new Scaduino.Protocols.BqBus.BqBusSerialDriver();
-            this.communicationChannels1 = new Scaduino.Protocols.CommunicationChannels(this.components);
             this.SuspendLayout();
-            // 
-            // communicationChannels1
-            // 
-            bqBusSerialDriver1.AutoConnect = false;
-            bqBusSerialDriver1.BaudRate = 9600;
-            bqBusSerialDriver1.Name = "BqBusSerial";
-            bqBusSerialDriver1.PortName = "COM1";
-            bqBusSerialDriver1.Tags = null;
-            this.communicationChannels1.Drivers = new Scaduino.Protocols.CommunicationDriver[] {
-        ((Scaduino.Protocols.CommunicationDriver)(bqBusSerialDriver1))};
             // 
             // Form2
             // 
@@ -55,7 +42,5 @@
         }
 
         #endregion
-
-        private Scaduino.Protocols.CommunicationChannels communicationChannels1;
     }
 }
