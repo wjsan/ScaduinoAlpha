@@ -13,7 +13,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/WesleyJoseSantos/Scaduino/</projectUrl>
     <description>$description$</description>
-    <releaseNotes>Fixed ScaduinoPicture images bug.</releaseNotes>
+    <releaseNotes>Fixed CommunicationChannels Form Load bug.</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Scaduino Arduino BINARY_QUANTUM</tags>
   </metadata>

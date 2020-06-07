@@ -21,12 +21,16 @@ namespace Scaduino.Windows
         {
             try
             {
-                comboBoxDriveType.SelectedIndex = 0;
-                listBoxCommunicationLinks.SelectedIndex = 0;
+                if(comboBoxDriveType.Items.Count > 0)
+                    comboBoxDriveType.SelectedIndex = 0;
+                if(listBoxCommunicationLinks.Items.Count > 0)
+                    listBoxCommunicationLinks.SelectedIndex = 0;
+                if(GlobalData.SelectedCommunicationChannels.Drivers != null)
                 Drivers = GlobalData.SelectedCommunicationChannels.Drivers.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.StackTrace);
             }
             RenderCommunicationList();
         }
