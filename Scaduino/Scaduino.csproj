@@ -286,7 +286,7 @@
       <DependentUpon>ScreenTopBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -325,7 +325,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\shutdown.png" />
+    <None Include="Resources\pressure.png" />
+    <None Include="Resources\temperature.png" />
+    <None Include="Resources\indicator.png" />
+    <None Include="Resources\tank.png" />
+    <None Include="Resources\tower.png" />
+    <None Include="Resources\petroleumPump.png" />
+    <None Include="Resources\speed.png" />
+    <None Include="Resources\satellite.png" />
+    <None Include="Resources\roboticArm.png" />
+    <None Include="Resources\turnOff.png" />
+    <None Include="Resources\motorOff.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\antenna.png" />
+    <None Include="Resources\analog.png" />
+    <None Include="Resources\furnace.png" />
+    <None Include="Resources\balance.png" />
     <Content Include="Resources\Icons\scaduinoIcon.png" />
+    <None Include="Resources\ok.png" />
+    <None Include="Resources\motorOn.png" />
+    <None Include="Resources\motorFail.png" />
+    <None Include="Resources\turnOn.png" />
+    <None Include="Resources\ledGreen.png" />
+    <None Include="Resources\ledRed.png" />
+    <None Include="Resources\ledBlue.png" />
+    <None Include="Resources\ledGrey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

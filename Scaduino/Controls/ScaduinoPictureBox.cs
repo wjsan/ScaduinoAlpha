@@ -72,9 +72,11 @@ namespace Scaduino.Controls
         [Description("Name of Tag linked to this controller")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
         public string TagName { get => Tag.Name; }
+
         public ScaduinoPictureBox()
         {
             InitializeComponent();
+            GlobalData.CreateResources();
         }
 
         protected override void OnPaint(PaintEventArgs pe)
