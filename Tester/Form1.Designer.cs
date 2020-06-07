@@ -37,14 +37,17 @@
             Scaduino.Components.Tag tag5 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag6 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag7 = new Scaduino.Components.Tag();
+            Scaduino.Components.Tag tag8 = new Scaduino.Components.Tag();
             Scaduino.ArduinoBoard.Pin pin1 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin2 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin3 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin4 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin5 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin6 = new Scaduino.ArduinoBoard.Pin();
+            Scaduino.ArduinoBoard.Pin pin7 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.Controls.LabelStyle labelStyle1 = new Scaduino.Controls.LabelStyle();
             Scaduino.Controls.LabelStyle labelStyle2 = new Scaduino.Controls.LabelStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.scaduinoHScrollBar1 = new Scaduino.Controls.ScaduinoHScrollBar();
@@ -56,6 +59,7 @@
             this.arduino1 = new Scaduino.ArduinoBoard.Arduino(this.components);
             this.scaduinoLabel1 = new Scaduino.Controls.ScaduinoLabel();
             this.scaduinoPictureBox1 = new Scaduino.Controls.ScaduinoPictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.scaduinoPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,13 +109,16 @@
             tag5.Value = 0;
             tag6.Name = "LABEL";
             tag6.Value = 0;
+            tag7.Name = "PICTUREBOX";
+            tag7.Value = 0;
             bqBusSerialDriver1.Tags = new Scaduino.Components.Tag[] {
         tag1,
         tag2,
         tag3,
         tag4,
         tag5,
-        tag6};
+        tag6,
+        tag7};
             this.communicationChannels1.Drivers = new Scaduino.Protocols.CommunicationDriver[] {
         ((Scaduino.Protocols.CommunicationDriver)(bqBusSerialDriver1))};
             // 
@@ -123,9 +130,9 @@
             this.scaduinoVScrollBar1.Name = "scaduinoVScrollBar1";
             this.scaduinoVScrollBar1.Size = new System.Drawing.Size(17, 80);
             this.scaduinoVScrollBar1.TabIndex = 3;
-            tag7.Name = "VSCROLLBAR";
-            tag7.Value = 0;
-            this.scaduinoVScrollBar1.Tag = tag7;
+            tag8.Name = "VSCROLLBAR";
+            tag8.Value = 0;
+            this.scaduinoVScrollBar1.Tag = tag8;
             // 
             // scaduinoComboBox1
             // 
@@ -202,13 +209,18 @@
             pin6.Name = "pinLed5";
             pin6.Number = 7;
             pin6.Tag = tag6;
+            pin7.Mode = Scaduino.ArduinoBoard.Pin.PinType.Input;
+            pin7.Name = "pinLed6";
+            pin7.Number = 8;
+            pin7.Tag = tag7;
             this.arduino1.Pins = new Scaduino.ArduinoBoard.Pin[] {
         pin1,
         pin2,
         pin3,
         pin4,
         pin5,
-        pin6};
+        pin6,
+        pin7};
             // 
             // scaduinoLabel1
             // 
@@ -234,14 +246,23 @@
             // 
             // scaduinoPictureBox1
             // 
-            this.scaduinoPictureBox1.CommunicationSource = null;
-            this.scaduinoPictureBox1.Images = null;
-            this.scaduinoPictureBox1.Location = new System.Drawing.Point(53, 145);
+            this.scaduinoPictureBox1.CommunicationSource = this.communicationChannels1;
+            this.scaduinoPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("scaduinoPictureBox1.Image")));
+            this.scaduinoPictureBox1.Images = this.imageList1;
+            this.scaduinoPictureBox1.Location = new System.Drawing.Point(84, 145);
             this.scaduinoPictureBox1.Name = "scaduinoPictureBox1";
-            this.scaduinoPictureBox1.Size = new System.Drawing.Size(100, 89);
+            this.scaduinoPictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.scaduinoPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.scaduinoPictureBox1.TabIndex = 7;
             this.scaduinoPictureBox1.TabStop = false;
-            this.scaduinoPictureBox1.Tag = null;
+            this.scaduinoPictureBox1.Tag = tag7;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "ledOff.png");
+            this.imageList1.Images.SetKeyName(1, "ledOn.png");
             // 
             // Form1
             // 
@@ -277,5 +298,6 @@
         private System.Windows.Forms.Label label2;
         private Scaduino.Controls.ScaduinoLabel scaduinoLabel1;
         private Scaduino.Controls.ScaduinoPictureBox scaduinoPictureBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

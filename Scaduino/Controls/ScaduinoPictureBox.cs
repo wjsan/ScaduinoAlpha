@@ -11,8 +11,20 @@ namespace Scaduino.Controls
     {
         private CommunicationChannels communicationSource;
         private Tag tag;
+        private ImageList images;
 
-        public ImageList Images { get; set; }
+        public ImageList Images
+        {
+            get => images;
+            set
+            {
+                images = value;
+                if (Images.Images.Count > 0)
+                {
+                    Image = Images.Images[0];
+                }
+            }
+        }
 
         /// <summary>
         /// Collection of communication channels to be used for this controller
@@ -45,9 +57,9 @@ namespace Scaduino.Controls
 
         private void Tag_TagValueChanged(object sender, System.EventArgs e)
         {
-            if (Created)
+            if (Created && Images != null)
             {
-                if(tag.Value < Images.Images.Count && tag.Value >= 0)
+                if (tag.Value < Images.Images.Count && tag.Value >= 0)
                 {
                     Image = Images.Images[tag.Value];
                 }

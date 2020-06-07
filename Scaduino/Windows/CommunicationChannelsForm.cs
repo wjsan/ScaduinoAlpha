@@ -23,11 +23,11 @@ namespace Scaduino.Windows
             {
                 comboBoxDriveType.SelectedIndex = 0;
                 listBoxCommunicationLinks.SelectedIndex = 0;
+                Drivers = GlobalData.SelectedCommunicationChannels.Drivers.ToList();
             }
             catch (Exception)
             {
             }
-            Drivers = GlobalData.SelectedCommunicationChannels.Drivers.ToList();
             RenderCommunicationList();
         }
 
