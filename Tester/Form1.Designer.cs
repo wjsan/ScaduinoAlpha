@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Scaduino.Controls.LabelStyle labelStyle1 = new Scaduino.Controls.LabelStyle();
+            Scaduino.Controls.LabelStyle labelStyle2 = new Scaduino.Controls.LabelStyle();
             Scaduino.Protocols.BqBus.BqBusSerialDriver bqBusSerialDriver1 = new Scaduino.Protocols.BqBus.BqBusSerialDriver();
             Scaduino.Components.Tag tag1 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag2 = new Scaduino.Components.Tag();
@@ -38,6 +40,7 @@
             Scaduino.Components.Tag tag6 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag7 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag8 = new Scaduino.Components.Tag();
+            Scaduino.Components.Tag tag9 = new Scaduino.Components.Tag();
             Scaduino.ArduinoBoard.Pin pin1 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin2 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin3 = new Scaduino.ArduinoBoard.Pin();
@@ -45,22 +48,19 @@
             Scaduino.ArduinoBoard.Pin pin5 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin6 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin7 = new Scaduino.ArduinoBoard.Pin();
-            Scaduino.Controls.LabelStyle labelStyle1 = new Scaduino.Controls.LabelStyle();
-            Scaduino.Controls.LabelStyle labelStyle2 = new Scaduino.Controls.LabelStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Scaduino.Components.Alarm alarm1 = new Scaduino.Components.Alarm();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.scaduinoHScrollBar1 = new Scaduino.Controls.ScaduinoHScrollBar();
+            this.scaduinoLabel1 = new Scaduino.Controls.ScaduinoLabel();
             this.communicationChannels1 = new Scaduino.Protocols.CommunicationChannels(this.components);
+            this.scaduinoHScrollBar1 = new Scaduino.Controls.ScaduinoHScrollBar();
             this.scaduinoVScrollBar1 = new Scaduino.Controls.ScaduinoVScrollBar();
             this.scaduinoComboBox1 = new Scaduino.Controls.ScaduinoComboBox();
             this.scaduinoCheckBox1 = new Scaduino.Controls.ScaduinoCheckBox();
             this.scaduinoButton1 = new Scaduino.Controls.ScaduinoButton();
             this.arduino1 = new Scaduino.ArduinoBoard.Arduino(this.components);
-            this.scaduinoLabel1 = new Scaduino.Controls.ScaduinoLabel();
-            this.scaduinoPictureBox1 = new Scaduino.Controls.ScaduinoPictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.scaduinoPictureBox1)).BeginInit();
+            this.alarms1 = new Scaduino.Components.Alarms(this.components);
+            this.alarmsViewer1 = new Scaduino.Controls.AlarmsViewer();
             this.SuspendLayout();
             // 
             // label1
@@ -81,15 +81,27 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Led2";
             // 
-            // scaduinoHScrollBar1
+            // scaduinoLabel1
             // 
-            this.scaduinoHScrollBar1.CommunicationSource = this.communicationChannels1;
-            this.scaduinoHScrollBar1.Location = new System.Drawing.Point(663, 84);
-            this.scaduinoHScrollBar1.Maximum = 255;
-            this.scaduinoHScrollBar1.Name = "scaduinoHScrollBar1";
-            this.scaduinoHScrollBar1.Size = new System.Drawing.Size(92, 17);
-            this.scaduinoHScrollBar1.TabIndex = 5;
-            this.scaduinoHScrollBar1.Tag = tag5;
+            this.scaduinoLabel1.AutoSize = true;
+            this.scaduinoLabel1.BackColor = System.Drawing.Color.Red;
+            this.scaduinoLabel1.CommunicationSource = this.communicationChannels1;
+            this.scaduinoLabel1.ForeColor = System.Drawing.Color.Black;
+            this.scaduinoLabel1.Location = new System.Drawing.Point(813, 81);
+            this.scaduinoLabel1.Name = "scaduinoLabel1";
+            this.scaduinoLabel1.Size = new System.Drawing.Size(54, 13);
+            labelStyle1.BackColor = System.Drawing.Color.Red;
+            labelStyle1.ForeColor = System.Drawing.Color.Black;
+            labelStyle1.Text = "Desligado";
+            labelStyle2.BackColor = System.Drawing.Color.LimeGreen;
+            labelStyle2.ForeColor = System.Drawing.Color.Black;
+            labelStyle2.Text = "Ligado";
+            this.scaduinoLabel1.Styles = new Scaduino.Controls.LabelStyle[] {
+        labelStyle1,
+        labelStyle2};
+            this.scaduinoLabel1.TabIndex = 6;
+            this.scaduinoLabel1.Tag = tag6;
+            this.scaduinoLabel1.Text = "Desligado";
             // 
             // communicationChannels1
             // 
@@ -111,6 +123,8 @@
             tag6.Value = 0;
             tag7.Name = "PICTUREBOX";
             tag7.Value = 0;
+            tag8.Name = "NOVATAG";
+            tag8.Value = 0;
             bqBusSerialDriver1.Tags = new Scaduino.Components.Tag[] {
         tag1,
         tag2,
@@ -118,9 +132,20 @@
         tag4,
         tag5,
         tag6,
-        tag7};
+        tag7,
+        tag8};
             this.communicationChannels1.Drivers = new Scaduino.Protocols.CommunicationDriver[] {
         ((Scaduino.Protocols.CommunicationDriver)(bqBusSerialDriver1))};
+            // 
+            // scaduinoHScrollBar1
+            // 
+            this.scaduinoHScrollBar1.CommunicationSource = this.communicationChannels1;
+            this.scaduinoHScrollBar1.Location = new System.Drawing.Point(663, 84);
+            this.scaduinoHScrollBar1.Maximum = 255;
+            this.scaduinoHScrollBar1.Name = "scaduinoHScrollBar1";
+            this.scaduinoHScrollBar1.Size = new System.Drawing.Size(92, 17);
+            this.scaduinoHScrollBar1.TabIndex = 5;
+            this.scaduinoHScrollBar1.Tag = tag5;
             // 
             // scaduinoVScrollBar1
             // 
@@ -130,9 +155,9 @@
             this.scaduinoVScrollBar1.Name = "scaduinoVScrollBar1";
             this.scaduinoVScrollBar1.Size = new System.Drawing.Size(17, 80);
             this.scaduinoVScrollBar1.TabIndex = 3;
-            tag8.Name = "VSCROLLBAR";
-            tag8.Value = 0;
-            this.scaduinoVScrollBar1.Tag = tag8;
+            tag9.Name = "VSCROLLBAR";
+            tag9.Value = 0;
+            this.scaduinoVScrollBar1.Tag = tag9;
             // 
             // scaduinoComboBox1
             // 
@@ -222,54 +247,35 @@
         pin6,
         pin7};
             // 
-            // scaduinoLabel1
+            // alarms1
             // 
-            this.scaduinoLabel1.AutoSize = true;
-            this.scaduinoLabel1.BackColor = System.Drawing.Color.Red;
-            this.scaduinoLabel1.CommunicationSource = this.communicationChannels1;
-            this.scaduinoLabel1.ForeColor = System.Drawing.Color.Black;
-            this.scaduinoLabel1.Location = new System.Drawing.Point(813, 81);
-            this.scaduinoLabel1.Name = "scaduinoLabel1";
-            this.scaduinoLabel1.Size = new System.Drawing.Size(54, 13);
-            labelStyle1.BackColor = System.Drawing.Color.Red;
-            labelStyle1.ForeColor = System.Drawing.Color.Black;
-            labelStyle1.Text = "Desligado";
-            labelStyle2.BackColor = System.Drawing.Color.LimeGreen;
-            labelStyle2.ForeColor = System.Drawing.Color.Black;
-            labelStyle2.Text = "Ligado";
-            this.scaduinoLabel1.Styles = new Scaduino.Controls.LabelStyle[] {
-        labelStyle1,
-        labelStyle2};
-            this.scaduinoLabel1.TabIndex = 6;
-            this.scaduinoLabel1.Tag = tag6;
-            this.scaduinoLabel1.Text = "Desligado";
+            alarm1.Date = null;
+            alarm1.Limit = 200D;
+            alarm1.Message = "Alarme acionado!";
+            alarm1.Status = Scaduino.Components.Alarm.AlarmState.Inactived;
+            alarm1.Tag = tag5;
+            alarm1.Type = Scaduino.Components.Alarm.AlarmType.High;
+            this.alarms1.AlarmsList = new Scaduino.Components.Alarm[] {
+        alarm1};
+            this.alarms1.ColorAck = System.Drawing.Color.Yellow;
+            this.alarms1.ColorActived = System.Drawing.Color.Red;
+            this.alarms1.ColorInactived = System.Drawing.Color.Green;
             // 
-            // scaduinoPictureBox1
+            // alarmsViewer1
             // 
-            this.scaduinoPictureBox1.CommunicationSource = this.communicationChannels1;
-            this.scaduinoPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("scaduinoPictureBox1.Image")));
-            this.scaduinoPictureBox1.Images = this.imageList1;
-            this.scaduinoPictureBox1.Location = new System.Drawing.Point(84, 145);
-            this.scaduinoPictureBox1.Name = "scaduinoPictureBox1";
-            this.scaduinoPictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.scaduinoPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.scaduinoPictureBox1.TabIndex = 7;
-            this.scaduinoPictureBox1.TabStop = false;
-            this.scaduinoPictureBox1.Tag = tag7;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "ledOff.png");
-            this.imageList1.Images.SetKeyName(1, "ledOn.png");
+            this.alarmsViewer1.Alarms = this.alarms1;
+            this.alarmsViewer1.BackColor = System.Drawing.Color.Black;
+            this.alarmsViewer1.Location = new System.Drawing.Point(165, 179);
+            this.alarmsViewer1.Name = "alarmsViewer1";
+            this.alarmsViewer1.Size = new System.Drawing.Size(566, 297);
+            this.alarmsViewer1.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 273);
-            this.Controls.Add(this.scaduinoPictureBox1);
+            this.ClientSize = new System.Drawing.Size(912, 519);
+            this.Controls.Add(this.alarmsViewer1);
             this.Controls.Add(this.scaduinoLabel1);
             this.Controls.Add(this.scaduinoHScrollBar1);
             this.Controls.Add(this.label2);
@@ -280,7 +286,6 @@
             this.Controls.Add(this.scaduinoButton1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.scaduinoPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,7 +302,7 @@
         private Scaduino.Controls.ScaduinoHScrollBar scaduinoHScrollBar1;
         private System.Windows.Forms.Label label2;
         private Scaduino.Controls.ScaduinoLabel scaduinoLabel1;
-        private Scaduino.Controls.ScaduinoPictureBox scaduinoPictureBox1;
-        private System.Windows.Forms.ImageList imageList1;
+        private Scaduino.Components.Alarms alarms1;
+        private Scaduino.Controls.AlarmsViewer alarmsViewer1;
     }
 }

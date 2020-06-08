@@ -1,4 +1,4 @@
-﻿namespace Scaduino.Windows
+﻿namespace Scaduino.Editors
 {
     partial class ArduinoPins
     {
@@ -151,6 +151,7 @@
             this.buttonSearch.TabIndex = 10;
             this.buttonSearch.Text = "Search Tag";
             this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSearch.Visible = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonOk

@@ -4,9 +4,9 @@ using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace Scaduino.Windows
+namespace Scaduino.Editors
 {
-    public class SelectCommunicationChannelEditor : UITypeEditor
+    class SelectTagEditor : UITypeEditor
     {
         public override UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
         {
@@ -17,10 +17,10 @@ namespace Scaduino.Windows
         {
             if ((provider != null) && (((IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService))) != null))
             {
-                var form = new SelectCommunicationChannel();
+                var form = new SelectTag();
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    value = form.Driver;
+                    value = form.SelectedTag;
                 }
             }
             return value;

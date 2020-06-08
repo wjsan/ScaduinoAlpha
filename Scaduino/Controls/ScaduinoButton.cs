@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Scaduino.Components;
 using Scaduino.Protocols;
-using Scaduino.Windows;
+using Scaduino.Editors;
 using System.Drawing.Design;
 
 namespace Scaduino.Controls
@@ -24,6 +24,7 @@ namespace Scaduino.Controls
         /// Collection of communication channels to be used for this controller
         /// </summary>
         [Description("Collection of communication channels to be used for this controller")]
+        [Category("Scaduino")]
         public CommunicationChannels CommunicationSource
         {
             get
@@ -38,6 +39,7 @@ namespace Scaduino.Controls
         /// Operation mode of this button
         /// </summary>
         [Description("Operation mode of this button")]
+        [Category("Scaduino")]
         public ButtonMode Mode { get; set; }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace Scaduino.Controls
         /// </summary>
         [Description("Tag linked to this controller")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        [Category("Scaduino")]
         new public Tag Tag { get; set; }
 
         /// <summary>
@@ -52,6 +55,7 @@ namespace Scaduino.Controls
         /// </summary>
         [Description("Name of Tag linked to this controller")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        [Category("Scaduino")]
         public string TagName { get => Tag.Name; }
 
         public ScaduinoButton()

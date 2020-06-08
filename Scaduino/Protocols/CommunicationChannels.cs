@@ -1,4 +1,4 @@
-﻿using Scaduino.Windows;
+﻿using Scaduino.Editors;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Windows.Forms;
@@ -21,7 +21,11 @@ namespace Scaduino.Protocols
                 GlobalData.SelectedCommunicationChannels = this;
                 return drivers;
             }
-            set => drivers = value;
+            set
+            {
+                if(value != null)
+                    drivers = value;
+            }
         }
 
         public CommunicationChannels(IContainer container)

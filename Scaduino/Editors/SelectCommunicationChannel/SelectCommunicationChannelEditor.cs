@@ -1,14 +1,12 @@
-﻿using Scaduino.ArduinoBoard;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace Scaduino.Windows
+namespace Scaduino.Editors
 {
-    class ArduinoPinsEditor : UITypeEditor
+    public class SelectCommunicationChannelEditor : UITypeEditor
     {
         public override UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context)
         {
@@ -19,10 +17,10 @@ namespace Scaduino.Windows
         {
             if ((provider != null) && (((IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService))) != null))
             {
-                var form = new ArduinoPins(value as Pin[]);
+                var form = new SelectCommunicationChannel();
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    value = form.Pins.ToArray();
+                    value = form.Driver;
                 }
             }
             return value;

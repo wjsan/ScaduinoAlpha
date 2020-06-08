@@ -1,4 +1,4 @@
-﻿using Scaduino.Windows;
+﻿using Scaduino.Editors;
 using System;
 using System.ComponentModel;
 using System.Drawing.Design;

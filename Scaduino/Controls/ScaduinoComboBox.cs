@@ -1,6 +1,6 @@
 ﻿using Scaduino.Components;
 using Scaduino.Protocols;
-using Scaduino.Windows;
+using Scaduino.Editors;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Windows.Forms;
@@ -16,6 +16,7 @@ namespace Scaduino.Controls
         /// Collection of communication channels to be used for this controller
         /// </summary>
         [Description("Collection of communication channels to be used for this controller")]
+        [Category("Scaduino")]
         public CommunicationChannels CommunicationSource
         {
             get
@@ -29,6 +30,7 @@ namespace Scaduino.Controls
         /// <summary>
         /// Tag linked to this controller
         /// </summary>
+        [Category("Scaduino")]
         [Description("Tag linked to this controller")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
         new public Tag Tag
@@ -54,6 +56,7 @@ namespace Scaduino.Controls
         /// <summary>
         /// Name of Tag linked to this controller
         /// </summary>
+        [Category("Scaduino")]
         [Description("Name of Tag linked to this controller")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
         public string TagName { get => Tag.Name; }

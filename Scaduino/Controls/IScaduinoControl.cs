@@ -12,6 +12,7 @@ namespace Scaduino.Controls
         CommunicationChannels CommunicationSource { get; set; }
 
         Tag Tag { get; set; }
+
         string TagName { get; }
     }
 }

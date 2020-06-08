@@ -35,6 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -67,7 +70,26 @@
       <DependentUpon>CodeManager.cs</DependentUpon>
     </Compile>
     <Compile Include="ArduinoBoard\Pin.cs" />
+    <Compile Include="Components\Alarm.cs" />
+    <Compile Include="Components\Alarms.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Alarms.Designer.cs">
+      <DependentUpon>Alarms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Tag.cs" />
+    <Compile Include="Controls\AlarmItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlarmItem.Designer.cs">
+      <DependentUpon>AlarmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlarmsViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\AlarmsViewer.Designer.cs">
+      <DependentUpon>AlarmsViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LabelStyle.cs" />
     <Compile Include="Controls\ScaduinoButton.cs">
       <SubType>Component</SubType>
@@ -218,40 +240,46 @@
     <Compile Include="Protocols\ICommunicationEvents.cs" />
     <Compile Include="Protocols\IConnectionHandler.cs" />
     <Compile Include="Protocols\IRegsHandler.cs" />
-    <Compile Include="Windows\ArduinoPins.cs">
+    <Compile Include="Editors\ArduinoPins\ArduinoPins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\ArduinoPins.Designer.cs">
+    <Compile Include="Editors\ArduinoPins\ArduinoPins.Designer.cs">
       <DependentUpon>ArduinoPins.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ArduinoPinsEditor.cs" />
-    <Compile Include="Windows\CommunicationChannelsForm.cs">
+    <Compile Include="Editors\ArduinoPins\ArduinoPinsEditor.cs" />
+    <Compile Include="Editors\CommunicationChannels\CommunicationChannelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\CommunicationChannelsForm.Designer.cs">
+    <Compile Include="Editors\CommunicationChannels\CommunicationChannelsForm.Designer.cs">
       <DependentUpon>CommunicationChannelsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\CommunicationChannelsEditor.cs" />
-    <Compile Include="Windows\CreateCodeDialog.cs">
+    <Compile Include="Editors\CommunicationChannels\CommunicationChannelsEditor.cs" />
+    <Compile Include="Editors\CodeEditor\CreateCodeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\CreateCodeDialog.Designer.cs">
+    <Compile Include="Editors\CodeEditor\CreateCodeDialog.Designer.cs">
       <DependentUpon>CreateCodeDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SelectCommunicationChannel.cs">
+    <Compile Include="Editors\SelectCommunicationChannel\SelectCommunicationChannel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\SelectCommunicationChannel.Designer.cs">
+    <Compile Include="Editors\SelectCommunicationChannel\SelectCommunicationChannel.Designer.cs">
       <DependentUpon>SelectCommunicationChannel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SelectCommunicationChannelEditor.cs" />
-    <Compile Include="Windows\SelectTag.cs">
+    <Compile Include="Editors\SelectCommunicationChannel\SelectCommunicationChannelEditor.cs" />
+    <Compile Include="Editors\SelectTag\SelectTag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Windows\SelectTag.Designer.cs">
+    <Compile Include="Editors\SelectTag\SelectTag.Designer.cs">
       <DependentUpon>SelectTag.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SelectTagEditor.cs" />
+    <Compile Include="Editors\SelectTag\SelectTagEditor.cs" />
+    <EmbeddedResource Include="Controls\AlarmItem.resx">
+      <DependentUpon>AlarmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlarmsViewer.resx">
+      <DependentUpon>AlarmsViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScaduinoButton.resx">
       <DependentUpon>ScaduinoButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,22 +326,23 @@
     <EmbeddedResource Include="Protocols\BqBus\BqBusSerial.resx">
       <DependentUpon>BqBusSerial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\ArduinoPins.resx">
+    <EmbeddedResource Include="Editors\ArduinoPins\ArduinoPins.resx">
       <DependentUpon>ArduinoPins.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\CommunicationChannelsForm.resx">
+    <EmbeddedResource Include="Editors\CommunicationChannels\CommunicationChannelsForm.resx">
       <DependentUpon>CommunicationChannelsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\CreateCodeDialog.resx">
+    <EmbeddedResource Include="Editors\CodeEditor\CreateCodeDialog.resx">
       <DependentUpon>CreateCodeDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\SelectCommunicationChannel.resx">
+    <EmbeddedResource Include="Editors\SelectCommunicationChannel\SelectCommunicationChannel.resx">
       <DependentUpon>SelectCommunicationChannel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\SelectTag.resx">
+    <EmbeddedResource Include="Editors\SelectTag\SelectTag.resx">
       <DependentUpon>SelectTag.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

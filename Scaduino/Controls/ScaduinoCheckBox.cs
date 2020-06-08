@@ -1,6 +1,6 @@
 ﻿using Scaduino.Components;
 using Scaduino.Protocols;
-using Scaduino.Windows;
+using Scaduino.Editors;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Windows.Forms;
@@ -16,6 +16,7 @@ namespace Scaduino.Controls
         /// Collection of communication channels to be used for this controller
         /// </summary>
         [Description("Collection of communication channels to be used for this controller")]
+        [Category("Scaduino")]
         public CommunicationChannels CommunicationSource
         {
             get
@@ -30,6 +31,7 @@ namespace Scaduino.Controls
         /// Tag linked to this controller
         /// </summary>
         [Description("Tag linked to this controller")]
+        [Category("Scaduino")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
         new public Tag Tag 
         { 
@@ -41,21 +43,13 @@ namespace Scaduino.Controls
             }
         }
 
-        private void Tag_TagValueChanged(object sender, System.EventArgs e)
-        {
-            if (Created)
-            {
-                Invoke((MethodInvoker)delegate{
-                    Checked = tag.Value == 1;
-                });
-            }
-        }
 
         /// <summary>
         /// Name of Tag linked to this controller
         /// </summary>
         [Description("Name of Tag linked to this controller")]
         [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        [Category("Scaduino")]
         public string TagName { get => Tag.Name; }
         public ScaduinoCheckBox()
         {
@@ -65,6 +59,16 @@ namespace Scaduino.Controls
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+
+        private void Tag_TagValueChanged(object sender, System.EventArgs e)
+        {
+            if (Created)
+            {
+                Invoke((MethodInvoker)delegate{
+                    Checked = tag.Value == 1;
+                });
+            }
         }
 
         private void ScaduinoCheckBox_CheckedChanged(object sender, System.EventArgs e)

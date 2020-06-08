@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Scaduino.Windows
+namespace Scaduino.Editors
 {
     public partial class CreateCodeDialog : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Scaduino.Windows
+﻿namespace Scaduino.Editors
 {
     partial class CreateCodeDialog
     {

@@ -10,7 +10,7 @@ using System.Web.UI.Design.WebControls;
 using System.Windows.Documents;
 using System.Windows.Forms;
 
-namespace Scaduino.Windows
+namespace Scaduino.Editors
 {
     public partial class ArduinoPins : Form
     {

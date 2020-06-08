@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Scaduino.Windows
+namespace Scaduino.Editors
 {
     public partial class CommunicationChannelsForm : Form
     {
@@ -125,6 +125,27 @@ namespace Scaduino.Windows
         private void commProperties_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
             RenderCommunicationList();
+        }
+
+        private void listBoxCommunicationLinks_KeyDown(object sender, KeyEventArgs e)
+        {
+            var result = MessageBox.Show(
+                "All tags of this driver will be losted. Continue?",
+                "Confirm",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                if (listBoxCommunicationLinks.SelectedIndex >= 0)
+                {
+                    if(e.KeyCode == Keys.Delete)
+                    {
+                        int idx = listBoxCommunicationLinks.SelectedIndex;
+                        Drivers.RemoveAt(idx);
+                        RenderCommunicationList();
+                    }
+                }
+            }
         }
     }
 }

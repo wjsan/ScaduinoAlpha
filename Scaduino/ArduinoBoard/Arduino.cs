@@ -1,7 +1,7 @@
 ﻿using Scaduino.Components;
 using Scaduino.Protocols;
 using Scaduino.Protocols.BqBus;
-using Scaduino.Windows;
+using Scaduino.Editors;
 using System.ComponentModel;
 using System.Drawing.Design;
 

@@ -1,4 +1,4 @@
-﻿namespace Scaduino.Windows
+﻿namespace Scaduino.Editors
 {
     partial class CommunicationChannelsForm
     {
@@ -32,11 +32,11 @@
             this.listBoxCommunicationLinks = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxDriveType = new System.Windows.Forms.ComboBox();
+            this.commProperties = new System.Windows.Forms.PropertyGrid();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonCancel = new ModernUI.Button();
             this.buttonOk = new ModernUI.Button();
             this.buttonAddLink = new ModernUI.Button();
-            this.commProperties = new System.Windows.Forms.PropertyGrid();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -59,6 +59,7 @@
             this.listBoxCommunicationLinks.Size = new System.Drawing.Size(211, 256);
             this.listBoxCommunicationLinks.TabIndex = 6;
             this.listBoxCommunicationLinks.SelectedIndexChanged += new System.EventHandler(this.listBoxCommunicationLinks_SelectedIndexChanged);
+            this.listBoxCommunicationLinks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxCommunicationLinks_KeyDown);
             // 
             // label1
             // 
@@ -79,6 +80,33 @@
             this.comboBoxDriveType.Name = "comboBoxDriveType";
             this.comboBoxDriveType.Size = new System.Drawing.Size(145, 29);
             this.comboBoxDriveType.TabIndex = 9;
+            // 
+            // commProperties
+            // 
+            this.commProperties.CategoryForeColor = System.Drawing.Color.White;
+            this.commProperties.CommandsDisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.commProperties.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commProperties.HelpBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.commProperties.HelpForeColor = System.Drawing.Color.White;
+            this.commProperties.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.commProperties.Location = new System.Drawing.Point(301, 105);
+            this.commProperties.Name = "commProperties";
+            this.commProperties.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
+            this.commProperties.Size = new System.Drawing.Size(256, 289);
+            this.commProperties.TabIndex = 10;
+            this.commProperties.ToolbarVisible = false;
+            this.commProperties.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.commProperties.ViewForeColor = System.Drawing.Color.White;
+            this.commProperties.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.commProperties_PropertyValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(297, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 21);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Channel Settings";
             // 
             // buttonCancel
             // 
@@ -137,39 +165,12 @@
             this.buttonAddLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonAddLink.Click += new System.EventHandler(this.buttonAddLink_Click);
             // 
-            // commProperties
-            // 
-            this.commProperties.CategoryForeColor = System.Drawing.Color.White;
-            this.commProperties.CommandsDisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.commProperties.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commProperties.HelpBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.commProperties.HelpForeColor = System.Drawing.Color.White;
-            this.commProperties.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.commProperties.Location = new System.Drawing.Point(301, 105);
-            this.commProperties.Name = "commProperties";
-            this.commProperties.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-            this.commProperties.Size = new System.Drawing.Size(256, 289);
-            this.commProperties.TabIndex = 10;
-            this.commProperties.ToolbarVisible = false;
-            this.commProperties.ViewBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.commProperties.ViewForeColor = System.Drawing.Color.White;
-            this.commProperties.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.commProperties_PropertyValueChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(297, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 21);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Channel Settings";
-            // 
             // CommunicationChannelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(609, 493);
+            this.ClientSize = new System.Drawing.Size(600, 491);
             this.Controls.Add(this.commProperties);
             this.Controls.Add(this.comboBoxDriveType);
             this.Controls.Add(this.buttonCancel);

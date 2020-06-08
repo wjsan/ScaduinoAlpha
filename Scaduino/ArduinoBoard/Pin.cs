@@ -1,6 +1,6 @@
 ﻿using Scaduino.Components;
 using Scaduino.Controls;
-using Scaduino.Windows;
+using Scaduino.Editors;
 using System.ComponentModel;
 using System.Drawing.Design;
 using System.Runtime.InteropServices;
@@ -33,6 +33,7 @@ namespace Scaduino.ArduinoBoard
         /// <summary>
         /// Tag linked to this pin
         /// </summary>
+        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
         [Description("Tag linked to this pin")]
         public Tag Tag { get; set; }
 
