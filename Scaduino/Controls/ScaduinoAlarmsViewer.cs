@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Documents;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Scaduino.Controls
 {
-    public partial class AlarmsViewer : Panel
+    public partial class ScaduinoAlarmsViewer : Panel
     {
         private Alarms alarms;
 
@@ -33,6 +33,18 @@ namespace Scaduino.Controls
                 alarms.AlarmStatusChanged += Alarms_AlarmStatusChanged;
             }
         }
+
+        /// <summary>
+        /// Enable real-time notifications by e-mails for this alarms
+        /// </summary>
+        public bool EnableEmailService { get; set; }
+
+        /// <summary>
+        /// E-mail settings, to send an real-time alarm notification
+        /// </summary>
+        [Category("Scaduino")]
+        [Description("E-mail settings, to send an real-time alarm notification")]
+        public EmailSender EmailSettings { get; set; }
 
         private void Alarms_AlarmStatusChanged(object sender, System.EventArgs e)
         {
@@ -97,10 +109,18 @@ namespace Scaduino.Controls
                     Font = Font
                 };
                 Controls.Add(alarmItem);
+
+                if (EnableEmailService)
+                {
+                    ThreadPool.QueueUserWorkItem(
+                        (o) => EmailSettings.SendEmail("Alarm!", alarm.Message)
+                    );
+                }
+
             }
         }
 
-        public AlarmsViewer()
+        public ScaduinoAlarmsViewer()
         {
             InitializeComponent();
             BackColor = Color.Black;

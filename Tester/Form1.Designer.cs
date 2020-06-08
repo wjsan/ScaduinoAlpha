@@ -60,7 +60,7 @@
             this.scaduinoButton1 = new Scaduino.Controls.ScaduinoButton();
             this.arduino1 = new Scaduino.ArduinoBoard.Arduino(this.components);
             this.alarms1 = new Scaduino.Components.Alarms(this.components);
-            this.alarmsViewer1 = new Scaduino.Controls.AlarmsViewer();
+            this.alarmsViewer1 = new Scaduino.Controls.ScaduinoAlarmsViewer();
             this.SuspendLayout();
             // 
             // label1
@@ -303,6 +303,6 @@
         private System.Windows.Forms.Label label2;
         private Scaduino.Controls.ScaduinoLabel scaduinoLabel1;
         private Scaduino.Components.Alarms alarms1;
-        private Scaduino.Controls.AlarmsViewer alarmsViewer1;
+        private Scaduino.Controls.ScaduinoAlarmsViewer alarmsViewer1;
     }
 }

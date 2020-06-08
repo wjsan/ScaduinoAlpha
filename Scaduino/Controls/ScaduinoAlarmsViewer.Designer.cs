@@ -1,6 +1,6 @@
 ﻿namespace Scaduino.Controls
 {
-    partial class AlarmsViewer
+    partial class ScaduinoAlarmsViewer
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmsViewer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScaduinoAlarmsViewer));
             this.imageListAlarmStatus = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 

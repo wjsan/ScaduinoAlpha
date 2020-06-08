@@ -77,6 +77,7 @@
     <Compile Include="Components\Alarms.Designer.cs">
       <DependentUpon>Alarms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\EmailSender.cs" />
     <Compile Include="Components\Tag.cs" />
     <Compile Include="Controls\AlarmItem.cs">
       <SubType>UserControl</SubType>
@@ -84,11 +85,11 @@
     <Compile Include="Controls\AlarmItem.Designer.cs">
       <DependentUpon>AlarmItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\AlarmsViewer.cs">
+    <Compile Include="Controls\ScaduinoAlarmsViewer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\AlarmsViewer.Designer.cs">
-      <DependentUpon>AlarmsViewer.cs</DependentUpon>
+    <Compile Include="Controls\ScaduinoAlarmsViewer.Designer.cs">
+      <DependentUpon>ScaduinoAlarmsViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\LabelStyle.cs" />
     <Compile Include="Controls\ScaduinoButton.cs">
@@ -163,6 +164,12 @@
     </Compile>
     <Compile Include="Controls\ScaduinoVScrollBar.Designer.cs">
       <DependentUpon>ScaduinoVScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\EmailSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\EmailSettings.Designer.cs">
+      <DependentUpon>EmailSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="ModernUI\Button.cs">
@@ -277,8 +284,8 @@
     <EmbeddedResource Include="Controls\AlarmItem.resx">
       <DependentUpon>AlarmItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AlarmsViewer.resx">
-      <DependentUpon>AlarmsViewer.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ScaduinoAlarmsViewer.resx">
+      <DependentUpon>ScaduinoAlarmsViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScaduinoButton.resx">
       <DependentUpon>ScaduinoButton.cs</DependentUpon>
@@ -288,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScaduinoComboBox.resx">
       <DependentUpon>ScaduinoComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\EmailSettings.resx">
+      <DependentUpon>EmailSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModernUI\Button.resx">
       <DependentUpon>Button.cs</DependentUpon>
