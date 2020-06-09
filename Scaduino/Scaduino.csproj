@@ -159,18 +159,25 @@
     <Compile Include="Controls\ScaduinoRadioButton.Designer.cs">
       <DependentUpon>ScaduinoRadioButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ScaduinoTrackBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaduinoTrackBar.Designer.cs">
+      <DependentUpon>ScaduinoTrackBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ScaduinoVScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ScaduinoVScrollBar.Designer.cs">
       <DependentUpon>ScaduinoVScrollBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editors\EmailSettings.cs">
+    <Compile Include="Editors\EmailSettings\EmailSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editors\EmailSettings.Designer.cs">
+    <Compile Include="Editors\EmailSettings\EmailSettings.Designer.cs">
       <DependentUpon>EmailSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\EmailSettings\EmailSettingsEditor.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="ModernUI\Button.cs">
       <SubType>Component</SubType>
@@ -296,7 +303,7 @@
     <EmbeddedResource Include="Controls\ScaduinoComboBox.resx">
       <DependentUpon>ScaduinoComboBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editors\EmailSettings.resx">
+    <EmbeddedResource Include="Editors\EmailSettings\EmailSettings.resx">
       <DependentUpon>EmailSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModernUI\Button.resx">

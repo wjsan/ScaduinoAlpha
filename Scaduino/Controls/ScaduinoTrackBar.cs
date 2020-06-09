@@ -1,19 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Scaduino.Components;
+using Scaduino.Protocols;
+using Scaduino.Editors;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Drawing.Design;
 using System.Windows.Forms;
 
 namespace Scaduino.Controls
 {
-    public partial class ScaduinoTrackBar : Control
+    public partial class ScaduinoTrackBar : TrackBar, IScaduinoControl
     {
+        private CommunicationChannels communicationSource;
+        private Tag tag;
+
+        /// <summary>
+        /// Collection of communication channels to be used for this controller
+        /// </summary>
+        [Description("Collection of communication channels to be used for this controller")]
+        [Category("Scaduino")]
+        public CommunicationChannels CommunicationSource
+        {
+            get
+            {
+                GlobalData.SelectedCommunicationChannels = communicationSource;
+                return communicationSource;
+            }
+            set => communicationSource = value;
+        }
+
+        /// <summary>
+        /// Tag linked to this controller
+        /// </summary>
+        [Description("Tag linked to this controller")]
+        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        [Category("Scaduino")]
+        new public Tag Tag
+        {
+            get => tag;
+            set
+            {
+                tag = value;
+                tag.TagValueChanged += Tag_TagValueChanged;
+            }
+        }
+
+        private void Tag_TagValueChanged(object sender, System.EventArgs e)
+        {
+            if (Created)
+            {
+                Invoke((MethodInvoker)delegate {
+                    Value = tag.Value;
+                });
+            }
+        }
+
+        /// <summary>
+        /// Name of Tag linked to this controller
+        /// </summary>
+        [Description("Name of Tag linked to this controller")]
+        [Editor(typeof(SelectTagEditor), typeof(UITypeEditor))]
+        [Category("Scaduino")]
+        public string TagName { get => Tag.Name; }
+
         public ScaduinoTrackBar()
         {
+            ValueChanged += ScaduinoScrollBar_ValueChanged;
             InitializeComponent();
+        }
+
+        private void ScaduinoScrollBar_ValueChanged(object sender, System.EventArgs e)
+        {
+            tag.Value = Value;
         }
 
         protected override void OnPaint(PaintEventArgs pe)

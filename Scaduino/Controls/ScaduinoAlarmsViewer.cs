@@ -1,7 +1,9 @@
 ﻿using Scaduino.Components;
+using Scaduino.Editors;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -11,8 +13,9 @@ namespace Scaduino.Controls
     {
         private Alarms alarms;
 
-        private List<Alarm> AlarmsList = new List<Alarm>();
-        private List<Alarm> AlarmsFullHistory = new List<Alarm>();
+        private List<Alarm> alarmsList = new List<Alarm>();
+        private List<Alarm> alarmsFullHistory = new List<Alarm>();
+        private EmailSender emailSettings;
 
         /// <summary>
         /// Alarms register to be monitored by this viewer
@@ -37,29 +40,44 @@ namespace Scaduino.Controls
         /// <summary>
         /// Enable real-time notifications by e-mails for this alarms
         /// </summary>
-        public bool EnableEmailService { get; set; }
+        public bool EmailServiceEnabled { get; set; }
 
         /// <summary>
         /// E-mail settings, to send an real-time alarm notification
         /// </summary>
         [Category("Scaduino")]
         [Description("E-mail settings, to send an real-time alarm notification")]
-        public EmailSender EmailSettings { get; set; }
+        [Editor(typeof(EmailSettingsEditor), typeof(UITypeEditor))]
+        public EmailSender EmailSettings
+        {
+            get
+            {
+                GlobalData.EmailSettings = emailSettings;
+                return emailSettings;
+            }
+
+            set
+            {
+                if (value != null)
+                    emailSettings = value;
+            }
+        }
 
         private void Alarms_AlarmStatusChanged(object sender, System.EventArgs e)
         {
             var alarm = (Alarm)sender;
-            if (!AlarmsList.Contains(alarm)){
-                AlarmsList.Add(alarm);
+            if (!alarmsList.Contains(alarm))
+            {
+                alarmsList.Add(alarm);
             }
             else
             {
-                if(alarm.Acknowledged && alarm.Status == Alarm.AlarmState.Inactived)
+                if (alarm.Acknowledged && alarm.Status == Alarm.AlarmState.Inactived)
                 {
-                    AlarmsList.Remove(alarm);
+                    alarmsList.Remove(alarm);
                 }
             }
-            if(alarm.Status == Alarm.AlarmState.Actived && alarm.Status == Alarm.AlarmState.Acked)
+            if (alarm.Status == Alarm.AlarmState.Actived && alarm.Status == Alarm.AlarmState.Acked)
             {
                 var alarmHistory = new Alarm()
                 {
@@ -71,15 +89,22 @@ namespace Scaduino.Controls
                     Type = alarm.Type,
                     Acknowledged = alarm.Acknowledged
                 };
-                AlarmsFullHistory.Add(alarmHistory);
+                alarmsFullHistory.Add(alarmHistory);
             }
             UpdateAlarmsViewer();
         }
 
         private void UpdateAlarmsViewer()
         {
-            Controls.Clear();
-            foreach (var alarm in AlarmsList)
+            if (InvokeRequired)
+            {
+                return;
+            }
+            else
+            {
+                Controls.Clear();
+            }
+            foreach (var alarm in alarmsList)
             {
                 Color foreColor;
                 switch (alarm.Status)
@@ -97,6 +122,7 @@ namespace Scaduino.Controls
                         foreColor = Alarms.ColorInactived;
                         break;
                 }
+
                 var alarmItem = new AlarmItem()
                 {
                     StatusImage = imageListAlarmStatus.Images[(int)alarm.Status],
@@ -108,13 +134,24 @@ namespace Scaduino.Controls
                     Dock = DockStyle.Top,
                     Font = Font
                 };
-                Controls.Add(alarmItem);
 
-                if (EnableEmailService)
+                if (InvokeRequired)
                 {
-                    ThreadPool.QueueUserWorkItem(
-                        (o) => EmailSettings.SendEmail("Alarm!", alarm.Message)
-                    );
+                    return;
+                }
+                else
+                {
+                    Controls.Add(alarmItem);
+                    if (EmailServiceEnabled && alarm.Status == Alarm.AlarmState.Actived)
+                    {
+                        ThreadPool.QueueUserWorkItem(
+                            (o) => EmailSettings.SendEmail(
+                                "ALARM!",
+                                $"{alarm.Date}\t" +
+                                $"{alarm.TagName}\t" +
+                                $"{alarm.Message}")
+                        );
+                    }
                 }
 
             }

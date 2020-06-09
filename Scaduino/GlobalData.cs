@@ -1,4 +1,6 @@
-﻿using Scaduino.Properties;
+﻿using Scaduino.Components;
+using Scaduino.Editors;
+using Scaduino.Properties;
 using Scaduino.Protocols;
 using System;
 using System.ComponentModel;
@@ -13,6 +15,7 @@ namespace Scaduino
     {
         public static CommunicationChannels SelectedCommunicationChannels { get; set; }
         public static CommunicationDriver SelectedCommunicationDriver { get; set; }
+        public static EmailSender EmailSettings { get; set; }
 
         public static bool IsInDesignMode
         {

@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Scaduino.Components.EmailSender emailSender1 = new Scaduino.Components.EmailSender();
+            Scaduino.Components.Alarm alarm1 = new Scaduino.Components.Alarm();
+            Scaduino.Components.Tag tag1 = new Scaduino.Components.Tag();
             Scaduino.Controls.LabelStyle labelStyle1 = new Scaduino.Controls.LabelStyle();
             Scaduino.Controls.LabelStyle labelStyle2 = new Scaduino.Controls.LabelStyle();
             Scaduino.Protocols.BqBus.BqBusSerialDriver bqBusSerialDriver1 = new Scaduino.Protocols.BqBus.BqBusSerialDriver();
-            Scaduino.Components.Tag tag1 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag2 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag3 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag4 = new Scaduino.Components.Tag();
@@ -41,6 +43,7 @@
             Scaduino.Components.Tag tag7 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag8 = new Scaduino.Components.Tag();
             Scaduino.Components.Tag tag9 = new Scaduino.Components.Tag();
+            Scaduino.Components.Tag tag10 = new Scaduino.Components.Tag();
             Scaduino.ArduinoBoard.Pin pin1 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin2 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin3 = new Scaduino.ArduinoBoard.Pin();
@@ -48,9 +51,10 @@
             Scaduino.ArduinoBoard.Pin pin5 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin6 = new Scaduino.ArduinoBoard.Pin();
             Scaduino.ArduinoBoard.Pin pin7 = new Scaduino.ArduinoBoard.Pin();
-            Scaduino.Components.Alarm alarm1 = new Scaduino.Components.Alarm();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.alarmsViewer1 = new Scaduino.Controls.ScaduinoAlarmsViewer();
+            this.alarms1 = new Scaduino.Components.Alarms(this.components);
             this.scaduinoLabel1 = new Scaduino.Controls.ScaduinoLabel();
             this.communicationChannels1 = new Scaduino.Protocols.CommunicationChannels(this.components);
             this.scaduinoHScrollBar1 = new Scaduino.Controls.ScaduinoHScrollBar();
@@ -59,8 +63,6 @@
             this.scaduinoCheckBox1 = new Scaduino.Controls.ScaduinoCheckBox();
             this.scaduinoButton1 = new Scaduino.Controls.ScaduinoButton();
             this.arduino1 = new Scaduino.ArduinoBoard.Arduino(this.components);
-            this.alarms1 = new Scaduino.Components.Alarms(this.components);
-            this.alarmsViewer1 = new Scaduino.Controls.ScaduinoAlarmsViewer();
             this.SuspendLayout();
             // 
             // label1
@@ -75,11 +77,45 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(622, 87);
+            this.label2.Location = new System.Drawing.Point(616, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Led2";
+            // 
+            // alarmsViewer1
+            // 
+            this.alarmsViewer1.Alarms = this.alarms1;
+            this.alarmsViewer1.BackColor = System.Drawing.Color.Black;
+            this.alarmsViewer1.EmailServiceEnabled = true;
+            emailSender1.DestinationMail = "BINARY_QUANTUM@outlook.com";
+            emailSender1.DestinationName = "Binary Quantum";
+            emailSender1.SmtpHost = "smtp.gmail.com";
+            emailSender1.SmtpPass = "Wjsantos002";
+            emailSender1.SmtpPort = 587;
+            emailSender1.SmtpUser = "wesleypro37@gmail.com";
+            this.alarmsViewer1.EmailSettings = emailSender1;
+            this.alarmsViewer1.Location = new System.Drawing.Point(12, 351);
+            this.alarmsViewer1.Name = "alarmsViewer1";
+            this.alarmsViewer1.Size = new System.Drawing.Size(888, 156);
+            this.alarmsViewer1.TabIndex = 7;
+            // 
+            // alarms1
+            // 
+            alarm1.Acknowledged = false;
+            alarm1.Date = null;
+            alarm1.Limit = 200D;
+            alarm1.Message = "Alarme acionado!";
+            alarm1.Status = Scaduino.Components.Alarm.AlarmState.Inactived;
+            tag1.Name = "HSCROLLBAR";
+            tag1.Value = 0;
+            alarm1.Tag = tag1;
+            alarm1.Type = Scaduino.Components.Alarm.AlarmType.High;
+            this.alarms1.AlarmsList = new Scaduino.Components.Alarm[] {
+        alarm1};
+            this.alarms1.ColorAck = System.Drawing.Color.Yellow;
+            this.alarms1.ColorActived = System.Drawing.Color.Red;
+            this.alarms1.ColorInactived = System.Drawing.Color.Green;
             // 
             // scaduinoLabel1
             // 
@@ -87,7 +123,7 @@
             this.scaduinoLabel1.BackColor = System.Drawing.Color.Red;
             this.scaduinoLabel1.CommunicationSource = this.communicationChannels1;
             this.scaduinoLabel1.ForeColor = System.Drawing.Color.Black;
-            this.scaduinoLabel1.Location = new System.Drawing.Point(813, 81);
+            this.scaduinoLabel1.Location = new System.Drawing.Point(813, 84);
             this.scaduinoLabel1.Name = "scaduinoLabel1";
             this.scaduinoLabel1.Size = new System.Drawing.Size(54, 13);
             labelStyle1.BackColor = System.Drawing.Color.Red;
@@ -109,15 +145,13 @@
             bqBusSerialDriver1.BaudRate = 9600;
             bqBusSerialDriver1.Name = "BqBusSerial";
             bqBusSerialDriver1.PortName = "COM4";
-            tag1.Name = "BUTTON";
-            tag1.Value = 0;
-            tag2.Name = "CHECKBOX";
+            tag2.Name = "BUTTON";
             tag2.Value = 0;
-            tag3.Name = "COMBOBOX";
+            tag3.Name = "CHECKBOX";
             tag3.Value = 0;
-            tag4.Name = "VSCROLLBAR";
+            tag4.Name = "COMBOBOX";
             tag4.Value = 0;
-            tag5.Name = "HSCROLLBAR";
+            tag5.Name = "VSCROLLBAR";
             tag5.Value = 0;
             tag6.Name = "LABEL";
             tag6.Value = 0;
@@ -126,11 +160,11 @@
             tag8.Name = "NOVATAG";
             tag8.Value = 0;
             bqBusSerialDriver1.Tags = new Scaduino.Components.Tag[] {
-        tag1,
         tag2,
         tag3,
         tag4,
         tag5,
+        tag1,
         tag6,
         tag7,
         tag8};
@@ -140,24 +174,26 @@
             // scaduinoHScrollBar1
             // 
             this.scaduinoHScrollBar1.CommunicationSource = this.communicationChannels1;
-            this.scaduinoHScrollBar1.Location = new System.Drawing.Point(663, 84);
+            this.scaduinoHScrollBar1.Location = new System.Drawing.Point(657, 81);
             this.scaduinoHScrollBar1.Maximum = 255;
             this.scaduinoHScrollBar1.Name = "scaduinoHScrollBar1";
             this.scaduinoHScrollBar1.Size = new System.Drawing.Size(92, 17);
             this.scaduinoHScrollBar1.TabIndex = 5;
-            this.scaduinoHScrollBar1.Tag = tag5;
+            tag9.Name = "HSCROLLBAR";
+            tag9.Value = 0;
+            this.scaduinoHScrollBar1.Tag = tag9;
             // 
             // scaduinoVScrollBar1
             // 
             this.scaduinoVScrollBar1.CommunicationSource = this.communicationChannels1;
-            this.scaduinoVScrollBar1.Location = new System.Drawing.Point(542, 64);
+            this.scaduinoVScrollBar1.Location = new System.Drawing.Point(536, 61);
             this.scaduinoVScrollBar1.Maximum = 255;
             this.scaduinoVScrollBar1.Name = "scaduinoVScrollBar1";
             this.scaduinoVScrollBar1.Size = new System.Drawing.Size(17, 80);
             this.scaduinoVScrollBar1.TabIndex = 3;
-            tag9.Name = "VSCROLLBAR";
-            tag9.Value = 0;
-            this.scaduinoVScrollBar1.Tag = tag9;
+            tag10.Name = "VSCROLLBAR";
+            tag10.Value = 0;
+            this.scaduinoVScrollBar1.Tag = tag10;
             // 
             // scaduinoComboBox1
             // 
@@ -167,21 +203,21 @@
             this.scaduinoComboBox1.Items.AddRange(new object[] {
             "Desligado",
             "Ligado"});
-            this.scaduinoComboBox1.Location = new System.Drawing.Point(355, 81);
+            this.scaduinoComboBox1.Location = new System.Drawing.Point(342, 78);
             this.scaduinoComboBox1.Name = "scaduinoComboBox1";
             this.scaduinoComboBox1.Size = new System.Drawing.Size(121, 21);
             this.scaduinoComboBox1.TabIndex = 2;
-            this.scaduinoComboBox1.Tag = tag3;
+            this.scaduinoComboBox1.Tag = tag4;
             // 
             // scaduinoCheckBox1
             // 
             this.scaduinoCheckBox1.AutoSize = true;
             this.scaduinoCheckBox1.CommunicationSource = this.communicationChannels1;
-            this.scaduinoCheckBox1.Location = new System.Drawing.Point(220, 84);
+            this.scaduinoCheckBox1.Location = new System.Drawing.Point(195, 80);
             this.scaduinoCheckBox1.Name = "scaduinoCheckBox1";
             this.scaduinoCheckBox1.Size = new System.Drawing.Size(96, 17);
             this.scaduinoCheckBox1.TabIndex = 1;
-            this.scaduinoCheckBox1.Tag = tag2;
+            this.scaduinoCheckBox1.Tag = tag3;
             this.scaduinoCheckBox1.Text = "button pressed";
             this.scaduinoCheckBox1.UseVisualStyleBackColor = true;
             // 
@@ -197,12 +233,12 @@
             this.scaduinoButton1.ForeColorMouseEnter = System.Drawing.Color.White;
             this.scaduinoButton1.ForeColorMouseLeave = System.Drawing.Color.Black;
             this.scaduinoButton1.ForeColorOnClick = System.Drawing.Color.White;
-            this.scaduinoButton1.Location = new System.Drawing.Point(45, 81);
+            this.scaduinoButton1.Location = new System.Drawing.Point(39, 78);
             this.scaduinoButton1.Mode = Scaduino.Controls.ScaduinoButton.ButtonMode.Pulse;
             this.scaduinoButton1.Name = "scaduinoButton1";
             this.scaduinoButton1.Size = new System.Drawing.Size(120, 20);
             this.scaduinoButton1.TabIndex = 0;
-            this.scaduinoButton1.Tag = tag1;
+            this.scaduinoButton1.Tag = tag2;
             this.scaduinoButton1.Text = "scaduinoButton1";
             this.scaduinoButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -213,23 +249,23 @@
             pin1.Mode = Scaduino.ArduinoBoard.Pin.PinType.Output;
             pin1.Name = "pinLed";
             pin1.Number = 13;
-            pin1.Tag = tag1;
+            pin1.Tag = tag2;
             pin2.Mode = Scaduino.ArduinoBoard.Pin.PinType.Input;
             pin2.Name = "pinButton";
             pin2.Number = 3;
-            pin2.Tag = tag2;
+            pin2.Tag = tag3;
             pin3.Mode = Scaduino.ArduinoBoard.Pin.PinType.Output;
             pin3.Name = "pinLed2";
             pin3.Number = 4;
-            pin3.Tag = tag3;
+            pin3.Tag = tag4;
             pin4.Mode = Scaduino.ArduinoBoard.Pin.PinType.AnalogOutput;
             pin4.Name = "pinLed3";
             pin4.Number = 5;
-            pin4.Tag = tag4;
+            pin4.Tag = tag5;
             pin5.Mode = Scaduino.ArduinoBoard.Pin.PinType.AnalogOutput;
             pin5.Name = "pinLed4";
             pin5.Number = 6;
-            pin5.Tag = tag5;
+            pin5.Tag = tag1;
             pin6.Mode = Scaduino.ArduinoBoard.Pin.PinType.Input;
             pin6.Name = "pinLed5";
             pin6.Number = 7;
@@ -246,29 +282,6 @@
         pin5,
         pin6,
         pin7};
-            // 
-            // alarms1
-            // 
-            alarm1.Date = null;
-            alarm1.Limit = 200D;
-            alarm1.Message = "Alarme acionado!";
-            alarm1.Status = Scaduino.Components.Alarm.AlarmState.Inactived;
-            alarm1.Tag = tag5;
-            alarm1.Type = Scaduino.Components.Alarm.AlarmType.High;
-            this.alarms1.AlarmsList = new Scaduino.Components.Alarm[] {
-        alarm1};
-            this.alarms1.ColorAck = System.Drawing.Color.Yellow;
-            this.alarms1.ColorActived = System.Drawing.Color.Red;
-            this.alarms1.ColorInactived = System.Drawing.Color.Green;
-            // 
-            // alarmsViewer1
-            // 
-            this.alarmsViewer1.Alarms = this.alarms1;
-            this.alarmsViewer1.BackColor = System.Drawing.Color.Black;
-            this.alarmsViewer1.Location = new System.Drawing.Point(165, 179);
-            this.alarmsViewer1.Name = "alarmsViewer1";
-            this.alarmsViewer1.Size = new System.Drawing.Size(566, 297);
-            this.alarmsViewer1.TabIndex = 7;
             // 
             // Form1
             // 
