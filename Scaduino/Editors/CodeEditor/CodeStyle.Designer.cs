@@ -1,6 +1,6 @@
-﻿namespace Scaduino.ArduinoBoard
+﻿namespace Scaduino.Editors
 {
-    partial class CodeManager
+    partial class CodeStyle
     {
         /// <summary>
         /// Variável de designer necessária.

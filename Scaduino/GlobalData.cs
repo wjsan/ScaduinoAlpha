@@ -1,13 +1,8 @@
-﻿using Scaduino.Components;
-using Scaduino.Editors;
-using Scaduino.Properties;
+﻿using Scaduino.ArduinoBoard;
+using Scaduino.Components;
 using Scaduino.Protocols;
-using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 
 namespace Scaduino
 {
@@ -16,6 +11,8 @@ namespace Scaduino
         public static CommunicationChannels SelectedCommunicationChannels { get; set; }
         public static CommunicationDriver SelectedCommunicationDriver { get; set; }
         public static EmailSender EmailSettings { get; set; }
+
+        public static string CodeDirectory { get; set; }
 
         public static bool IsInDesignMode
         {
@@ -35,5 +32,6 @@ namespace Scaduino
             }
         }
 
+        public static Arduino SelectedArduino { get; set; }
     }
 }

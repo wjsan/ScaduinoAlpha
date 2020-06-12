@@ -33,12 +33,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.TextBoxDirectory = new System.Windows.Forms.TextBox();
-            this.buttonSearchDir = new ModernUI.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonCancel = new ModernUI.Button();
             this.buttonCreate = new ModernUI.Button();
-            this.checkBoxOpen = new System.Windows.Forms.CheckBox();
             this.buttonIntallLibs = new ModernUI.Button();
+            this.buttonCancel = new ModernUI.Button();
+            this.buttonSearchDir = new ModernUI.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,20 +73,90 @@
             // textBoxName
             // 
             this.textBoxName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBoxName.ForeColor = System.Drawing.SystemColors.Info;
+            this.textBoxName.ForeColor = System.Drawing.Color.White;
             this.textBoxName.Location = new System.Drawing.Point(278, 97);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(275, 28);
             this.textBoxName.TabIndex = 2;
+            this.textBoxName.Text = "NewCode";
             // 
             // TextBoxDirectory
             // 
             this.TextBoxDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TextBoxDirectory.ForeColor = System.Drawing.SystemColors.Info;
+            this.TextBoxDirectory.ForeColor = System.Drawing.Color.White;
             this.TextBoxDirectory.Location = new System.Drawing.Point(278, 154);
             this.TextBoxDirectory.Name = "TextBoxDirectory";
-            this.TextBoxDirectory.Size = new System.Drawing.Size(275, 28);
+            this.TextBoxDirectory.Size = new System.Drawing.Size(243, 28);
             this.TextBoxDirectory.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(223, 21);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Scaduino - Create Device Code";
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreate.BackColor = System.Drawing.Color.LightGray;
+            this.buttonCreate.ColorMouseEnter = System.Drawing.Color.Gray;
+            this.buttonCreate.ColorMouseLeave = System.Drawing.Color.LightGray;
+            this.buttonCreate.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.buttonCreate.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreate.ForeColor = System.Drawing.Color.Black;
+            this.buttonCreate.ForeColorMouseEnter = System.Drawing.Color.White;
+            this.buttonCreate.ForeColorMouseLeave = System.Drawing.Color.Black;
+            this.buttonCreate.ForeColorOnClick = System.Drawing.Color.White;
+            this.buttonCreate.Location = new System.Drawing.Point(457, 242);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(100, 33);
+            this.buttonCreate.TabIndex = 5;
+            this.buttonCreate.Text = "OK";
+            this.buttonCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // buttonIntallLibs
+            // 
+            this.buttonIntallLibs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonIntallLibs.BackColor = System.Drawing.Color.LightGray;
+            this.buttonIntallLibs.ColorMouseEnter = System.Drawing.Color.Gray;
+            this.buttonIntallLibs.ColorMouseLeave = System.Drawing.Color.LightGray;
+            this.buttonIntallLibs.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.buttonIntallLibs.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIntallLibs.ForeColor = System.Drawing.Color.Black;
+            this.buttonIntallLibs.ForeColorMouseEnter = System.Drawing.Color.White;
+            this.buttonIntallLibs.ForeColorMouseLeave = System.Drawing.Color.Black;
+            this.buttonIntallLibs.ForeColorOnClick = System.Drawing.Color.White;
+            this.buttonIntallLibs.Location = new System.Drawing.Point(158, 242);
+            this.buttonIntallLibs.Name = "buttonIntallLibs";
+            this.buttonIntallLibs.Size = new System.Drawing.Size(109, 33);
+            this.buttonIntallLibs.TabIndex = 5;
+            this.buttonIntallLibs.Text = "Install Libs";
+            this.buttonIntallLibs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonIntallLibs.Click += new System.EventHandler(this.buttonIntallLibs_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.Color.LightGray;
+            this.buttonCancel.ColorMouseEnter = System.Drawing.Color.Gray;
+            this.buttonCancel.ColorMouseLeave = System.Drawing.Color.LightGray;
+            this.buttonCancel.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.Black;
+            this.buttonCancel.ForeColorMouseEnter = System.Drawing.Color.White;
+            this.buttonCancel.ForeColorMouseLeave = System.Drawing.Color.Black;
+            this.buttonCancel.ForeColorOnClick = System.Drawing.Color.White;
+            this.buttonCancel.Location = new System.Drawing.Point(312, 242);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(100, 33);
+            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSearchDir
             // 
@@ -108,93 +177,13 @@
             this.buttonSearchDir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonSearchDir.Click += new System.EventHandler(this.buttonSearchDir_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(223, 21);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Scaduino - Create Device Code";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.BackColor = System.Drawing.Color.LightGray;
-            this.buttonCancel.ColorMouseEnter = System.Drawing.Color.Gray;
-            this.buttonCancel.ColorMouseLeave = System.Drawing.Color.LightGray;
-            this.buttonCancel.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.Color.Black;
-            this.buttonCancel.ForeColorMouseEnter = System.Drawing.Color.White;
-            this.buttonCancel.ForeColorMouseLeave = System.Drawing.Color.Black;
-            this.buttonCancel.ForeColorOnClick = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(312, 276);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 33);
-            this.buttonCancel.TabIndex = 5;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreate.BackColor = System.Drawing.Color.LightGray;
-            this.buttonCreate.ColorMouseEnter = System.Drawing.Color.Gray;
-            this.buttonCreate.ColorMouseLeave = System.Drawing.Color.LightGray;
-            this.buttonCreate.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.buttonCreate.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCreate.ForeColor = System.Drawing.Color.Black;
-            this.buttonCreate.ForeColorMouseEnter = System.Drawing.Color.White;
-            this.buttonCreate.ForeColorMouseLeave = System.Drawing.Color.Black;
-            this.buttonCreate.ForeColorOnClick = System.Drawing.Color.White;
-            this.buttonCreate.Location = new System.Drawing.Point(457, 276);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(100, 33);
-            this.buttonCreate.TabIndex = 5;
-            this.buttonCreate.Text = "OK";
-            this.buttonCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
-            // checkBoxOpen
-            // 
-            this.checkBoxOpen.AutoSize = true;
-            this.checkBoxOpen.Location = new System.Drawing.Point(448, 210);
-            this.checkBoxOpen.Name = "checkBoxOpen";
-            this.checkBoxOpen.Size = new System.Drawing.Size(107, 25);
-            this.checkBoxOpen.TabIndex = 6;
-            this.checkBoxOpen.Text = "Open Code";
-            this.checkBoxOpen.UseVisualStyleBackColor = true;
-            // 
-            // buttonIntallLibs
-            // 
-            this.buttonIntallLibs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonIntallLibs.BackColor = System.Drawing.Color.LightGray;
-            this.buttonIntallLibs.ColorMouseEnter = System.Drawing.Color.Gray;
-            this.buttonIntallLibs.ColorMouseLeave = System.Drawing.Color.LightGray;
-            this.buttonIntallLibs.ColorOnClick = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.buttonIntallLibs.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIntallLibs.ForeColor = System.Drawing.Color.Black;
-            this.buttonIntallLibs.ForeColorMouseEnter = System.Drawing.Color.White;
-            this.buttonIntallLibs.ForeColorMouseLeave = System.Drawing.Color.Black;
-            this.buttonIntallLibs.ForeColorOnClick = System.Drawing.Color.White;
-            this.buttonIntallLibs.Location = new System.Drawing.Point(158, 276);
-            this.buttonIntallLibs.Name = "buttonIntallLibs";
-            this.buttonIntallLibs.Size = new System.Drawing.Size(109, 33);
-            this.buttonIntallLibs.TabIndex = 5;
-            this.buttonIntallLibs.Text = "Install Libs";
-            this.buttonIntallLibs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.buttonIntallLibs.Click += new System.EventHandler(this.buttonIntallLibs_Click);
-            // 
             // CreateCodeDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(620, 360);
+            this.ClientSize = new System.Drawing.Size(620, 326);
             this.ControlBox = false;
-            this.Controls.Add(this.checkBoxOpen);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.buttonIntallLibs);
             this.Controls.Add(this.buttonCancel);
@@ -230,7 +219,6 @@
         private System.Windows.Forms.Label label3;
         private ModernUI.Button buttonCancel;
         private ModernUI.Button buttonCreate;
-        private System.Windows.Forms.CheckBox checkBoxOpen;
         private ModernUI.Button buttonIntallLibs;
     }
 }

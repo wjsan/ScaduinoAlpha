@@ -11,6 +11,7 @@ namespace Scaduino.ArduinoBoard
     {
         private CommunicationChannels communicationSource;
         private BqBusSerialDriver communicationChannel;
+        private string code;
 
         /// <summary>
         /// Collection of communication channels to be used for this device
@@ -31,14 +32,14 @@ namespace Scaduino.ArduinoBoard
         /// </summary>
         [Description("Communication driver of this device")]
         [Editor(typeof(SelectCommunicationChannelEditor), typeof(UITypeEditor))]
-        public BqBusSerialDriver CommunicationChannel 
-        { 
+        public BqBusSerialDriver CommunicationChannel
+        {
             get
             {
                 GlobalData.SelectedCommunicationDriver = communicationChannel;
-                return communicationChannel; 
+                return communicationChannel;
             }
-            set => communicationChannel = value; 
+            set => communicationChannel = value;
         }
 
         /// <summary>
@@ -49,10 +50,20 @@ namespace Scaduino.ArduinoBoard
         public Pin[] Pins { get; set; }
 
         /// <summary>
-        /// "Source Code Management of this device"
+        /// "Source Code of this device"
         /// </summary>
-        [Description("Source Code Management of this device")]
-        public CodeManager CodeManager { get; }
+        [Description("Source Code of this device")]
+        [Editor(typeof(CodeEditorEditor), typeof(UITypeEditor))]
+        public string Code
+        {
+            get
+            {
+                GlobalData.SelectedArduino = this;
+                return code;
+            }
+
+            set => code = value;
+        }
 
         public string GetCode()
         {
@@ -89,7 +100,7 @@ namespace Scaduino.ArduinoBoard
         public Arduino()
         {
             InitializeComponent();
-            CodeManager = new CodeManager(this);
+            //CodeManager = new CodeManager(this);
             communicationSource = GlobalData.SelectedCommunicationChannels;
         }
 
@@ -97,7 +108,7 @@ namespace Scaduino.ArduinoBoard
         {
             container.Add(this);
             InitializeComponent();
-            CodeManager = new CodeManager(this);
+            //CodeManager = new CodeManager(this);
             communicationSource = GlobalData.SelectedCommunicationChannels;
         }
     }

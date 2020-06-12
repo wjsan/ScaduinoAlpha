@@ -8,7 +8,7 @@ namespace Scaduino.Editors
     {
         public string CodeName { get => textBoxName.Text; set => textBoxName.Text = value.Replace(".ino", ""); }
         public string CodeDirectory { get => TextBoxDirectory.Text; set => TextBoxDirectory.Text = value; }
-        public bool OpenCode { get => checkBoxOpen.Checked; }
+        //public bool OpenCode { get => checkBoxOpen.Checked; }
 
         public CreateCodeDialog()
         {

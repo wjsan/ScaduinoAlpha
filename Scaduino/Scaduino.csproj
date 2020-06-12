@@ -63,13 +63,14 @@
     <Compile Include="ArduinoBoard\Arduino.Designer.cs">
       <DependentUpon>Arduino.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArduinoBoard\CodeManager.cs">
+    <Compile Include="ArduinoBoard\CodeManager.cs" />
+    <Compile Include="ArduinoBoard\Pin.cs" />
+    <Compile Include="CommonControls\FilesExplorer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ArduinoBoard\CodeManager.Designer.cs">
-      <DependentUpon>CodeManager.cs</DependentUpon>
+    <Compile Include="CommonControls\FilesExplorer.designer.cs">
+      <DependentUpon>FilesExplorer.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArduinoBoard\Pin.cs" />
     <Compile Include="Components\Alarm.cs" />
     <Compile Include="Components\Alarms.cs">
       <SubType>Component</SubType>
@@ -170,6 +171,19 @@
     </Compile>
     <Compile Include="Controls\ScaduinoVScrollBar.Designer.cs">
       <DependentUpon>ScaduinoVScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\CodeEditor\CodeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\CodeEditor\CodeEditor.Designer.cs">
+      <DependentUpon>CodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\CodeEditor\CodeEditorEditor.cs" />
+    <Compile Include="Editors\CodeEditor\CodeStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editors\CodeEditor\CodeStyle.Designer.cs">
+      <DependentUpon>CodeStyle.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\EmailSettings\EmailSettings.cs">
       <SubType>Form</SubType>
@@ -288,6 +302,9 @@
       <DependentUpon>SelectTag.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\SelectTag\SelectTagEditor.cs" />
+    <EmbeddedResource Include="CommonControls\FilesExplorer.resx">
+      <DependentUpon>FilesExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\AlarmItem.resx">
       <DependentUpon>AlarmItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScaduinoComboBox.resx">
       <DependentUpon>ScaduinoComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\CodeEditor\CodeEditor.resx">
+      <DependentUpon>CodeEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\EmailSettings\EmailSettings.resx">
       <DependentUpon>EmailSettings.cs</DependentUpon>
